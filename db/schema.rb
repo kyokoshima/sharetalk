@@ -19,10 +19,14 @@ ActiveRecord::Schema.define(version: 20170221013654) do
     t.datetime "birthday"
   end
 
+  create_table "groups", force: :cascade do |t|
+    t.string   "name"
+  end
   create_table "events", force: :cascade do |t|
     t.string   "title"
     t.datetime "date"
     t.string   "place"
+
     t.text     "detail"
 
     t.datetime "created_at", null: false
