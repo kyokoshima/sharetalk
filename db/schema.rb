@@ -16,6 +16,12 @@ ActiveRecord::Schema.define(version: 20170221013654) do
     t.string   "image"
     t.string   "hobby"
     t.datetime "birthday"
+  end
+  create_table "events", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "date"
+    t.string   "place"
+    t.text     "detail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
