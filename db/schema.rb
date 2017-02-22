@@ -11,7 +11,13 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
-ActiveRecord::Schema.define(version: 20170220022857) do
+ActiveRecord::Schema.define(version: 20170221013654) do
+
+  create_table "profiles", force: :cascade do |t|
+    t.string   "image"
+    t.string   "hobby"
+    t.datetime "birthday"
+  end
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"
@@ -22,8 +28,8 @@ ActiveRecord::Schema.define(version: 20170220022857) do
     t.string   "place"
 
     t.text     "detail"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
 end
