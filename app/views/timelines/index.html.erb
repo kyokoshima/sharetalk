@@ -16,8 +16,8 @@
         <td><%= timeline.content %></td>
         <td><%= link_to 'Show', timeline %></td>
         <td><%= link_to 'Edit', edit_timeline_path(timeline) %></td>
-        <td><%= link_to 'Destroy', timeline, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<!--         <td><%= link_to 'Destroy', timeline, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+ -->      </tr>
     <% end %>
   </tbody>
 </table>
@@ -25,3 +25,4 @@
 <br>
 
 <%= link_to 'New Timeline', new_timeline_path %>
+<%= stylesheet_link_tag    "timeline", :media => "all" %>
