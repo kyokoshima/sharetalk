@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
+  resources :profiles
   resources :timelines
-
   resources :profiles
   resources :groups
   resources :events
