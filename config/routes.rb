@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  resources :timelines
+  devise_for :users
+  root :to => "home#index"
 
+  resources :profiles
+  resources :timelines
   resources :profiles
   resources :groups
   resources :events
