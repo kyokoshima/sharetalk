@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-
+  resources :expenses do
+  	resources :costs
+  end
   resources :profiles
   resources :groups
   resources :events

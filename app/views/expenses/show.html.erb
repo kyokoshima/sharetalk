@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @expense.title %>
+</p>
+
+<% @expense.costs.each do |cost| %>
+<p>
+  <strong>Subject:</strong>
+  <%= cost.subject %>
+
+  <strong>Cost:</strong> ¥
+  <%= cost.cost %>
+
+	<strong>Detail:</strong>
+  <%= cost.detail %>
+</p>
+<% end %>
+
+<%= render 'costs/form', cost: @cost, expense: @expense %>
+
+<%= link_to 'Edit', edit_expense_path(@expense) %> |
+<%= link_to 'Back', expenses_path %>
