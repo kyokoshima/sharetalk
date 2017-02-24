@@ -12,11 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :content %>
-    <%= f.text_area :content %>
+    <P>
+    <%= f.label :タイムライン %>
+    </P>
+    <%= f.text_area :content, placeholder: "今日の予定は？" %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit(['投稿']) %>
   </div>
 <% end %>
