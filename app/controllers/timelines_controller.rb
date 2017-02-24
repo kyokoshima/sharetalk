@@ -4,7 +4,8 @@ class TimelinesController < ApplicationController
   # GET /timelines
   # GET /timelines.json
   def index
-    @timelines = Timeline.all
+    @timelines = Timeline.all.order(:id).reverse_order
+    @timeline = Timeline.new
   end
 
   # GET /timelines/1
@@ -28,7 +29,7 @@ class TimelinesController < ApplicationController
 
     respond_to do |format|
       if @timeline.save
-        format.html { redirect_to @timeline, notice: 'Timeline was successfully created.' }
+        format.html { redirect_to }
         format.json { render :show, status: :created, location: @timeline }
       else
         format.html { render :new }
@@ -66,6 +67,7 @@ class TimelinesController < ApplicationController
     def set_timeline
       @timeline = Timeline.find(params[:id])
     end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def timeline_params

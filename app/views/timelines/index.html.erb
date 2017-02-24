@@ -1,21 +1,18 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Timelines</h1>
-
+<div class="header">
+  <h1>ShareTalk</h1>
+</div>
+<div class="post">
+  <%= render 'form', timeline: @timeline %>
+</div>
 <table>
-  <thead>
-    <tr>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
   <tbody>
     <% @timelines.each do |timeline| %>
-      <tr>
+      <tr class="timeline">
+        <td><img src=""></td>
         <td><%= timeline.content %></td>
-        <td><%= link_to 'Show', timeline %></td>
-        <td><%= link_to 'Edit', edit_timeline_path(timeline) %></td>
+        <td><%= link_to '詳細表示', timeline %></td>
+        <td><%= link_to '編集', edit_timeline_path(timeline) %></td>
 <!--         <td><%= link_to 'Destroy', timeline, method: :delete, data: { confirm: 'Are you sure?' } %></td>
  -->      </tr>
     <% end %>
@@ -25,4 +22,3 @@
 <br>
 
 <%= link_to 'New Timeline', new_timeline_path %>
-<%= stylesheet_link_tag    "timeline", :media => "all" %>
