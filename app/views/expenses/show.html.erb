@@ -18,6 +18,10 @@
 </p>
 <% end %>
 
+<% @expense.costs.each do |cost| %>
+	x = x + <%= cost.cost %>
+<% end %>
+
 <%= render 'costs/form', cost: @cost, expense: @expense %>
 
 <%= link_to 'Edit', edit_expense_path(@expense) %> |

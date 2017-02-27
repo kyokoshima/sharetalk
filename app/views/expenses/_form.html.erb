@@ -16,28 +16,25 @@
     <%= f.text_field :title %>
   </div>
 
+  <%= f.fields_for :costs do |c| %>
+    <div class="field">
+      <%= c.label :subject %>
+      <%= c.text_field :subject %>
+    </div>
+
+    <div class="field">
+      <%= c.label :cost %>
+      <%= c.number_field :cost %>
+    </div>
+
+    <div class="field">
+      <%= c.label :detail %>
+      <%= c.text_area :detail %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
 
-  <%= fields_for :costs do |cost| %>
-    <div class="field">
-      <%= cost.label :subject %>
-      <%= cost.text_field :subject %>
-    </div>
-
-    <div class="field">
-      <%= cost.label :cost %>
-      <%= cost.number_field :cost %>
-    </div>
-
-    <div class="field">
-      <%= cost.label :detail %>
-      <%= cost.text_area :detail %>
-    </div>
-
-    <div class="actions">
-      <%= cost.submit %>
-    </div>
-  <% end %>
 <% end %>
