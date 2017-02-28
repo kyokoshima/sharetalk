@@ -32,6 +32,8 @@ class TimelinesController < ApplicationController
         format.html { redirect_to }
         format.json { render :show, status: :created, location: @timeline }
       else
+        flash[:notice] = "1~75字で入力してください。"
+        format.html {redirect_to action: 'index', alert: ''}
         format.html { render :new }
         format.json { render json: @timeline.errors, status: :unprocessable_entity }
       end
