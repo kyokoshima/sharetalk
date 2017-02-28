@@ -73,6 +73,6 @@ class TimelinesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def timeline_params
-      params.require(:timeline).permit(:content)
+      params.require(:timeline).permit(:content, :user_id)
     end
 end
