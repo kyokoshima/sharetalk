@@ -15,7 +15,7 @@ class TimelinesController < ApplicationController
 
   # GET /timelines/new
   def new
-    @timeline = Timeline.new
+    # @timeline = Timeline.new
   end
 
   # GET /timelines/1/edit
