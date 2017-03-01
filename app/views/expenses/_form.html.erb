@@ -1,4 +1,4 @@
-<%= form_for(expense) do |f| %>
+<%= form_for @expense do |f| %>
   <% if expense.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(expense.errors.count, "error") %> prohibited this expense from being saved:</h2>
@@ -16,22 +16,16 @@
     <%= f.text_field :title %>
   </div>
 
-  <%= f.fields_for :costs do |c| %>
-    <div class="field">
-      <%= c.label :subject %>
-      <%= c.text_field :subject %>
-    </div>
-
-    <div class="field">
-      <%= c.label :cost %>
-      <%= c.number_field :cost %>
-    </div>
-
-    <div class="field">
-      <%= c.label :detail %>
-      <%= c.text_area :detail %>
-    </div>
+  <%= f.fields_for :costs do |cost| %>
+    <%= render 'cost_fields', f: cost %>
   <% end %>
+
+  <div class="links">
+    <%= link_to_add_association 'add cost', f, :costs %>
+  </div>
+
+
+
 
   <div class="actions">
     <%= f.submit %>
