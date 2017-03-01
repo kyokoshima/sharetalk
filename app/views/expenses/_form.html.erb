@@ -1,0 +1,40 @@
+<%= form_for(expense) do |f| %>
+  <% if expense.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(expense.errors.count, "error") %> prohibited this expense from being saved:</h2>
+
+      <ul>
+      <% expense.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <%= f.fields_for :costs do |c| %>
+    <div class="field">
+      <%= c.label :subject %>
+      <%= c.text_field :subject %>
+    </div>
+
+    <div class="field">
+      <%= c.label :cost %>
+      <%= c.number_field :cost %>
+    </div>
+
+    <div class="field">
+      <%= c.label :detail %>
+      <%= c.text_area :detail %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
