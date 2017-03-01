@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 20170223084644) do
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "expense_id"
   end
 
   create_table "groups", force: :cascade do |t|
