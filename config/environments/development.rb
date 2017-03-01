@@ -53,4 +53,5 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   BetterErrors::Middleware.allow_ip! '192.168.0.0/16'
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end
