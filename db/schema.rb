@@ -10,13 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222013715) do
+ActiveRecord::Schema.define(version: 20170225044316) do
+
+  create_table "costs", force: :cascade do |t|
+    t.string   "subject"
+    t.integer  "cost"
+    t.text     "detail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "expense_id"
 
   create_table "events", force: :cascade do |t|
     t.string   "title"
     t.datetime "date"
     t.string   "place"
     t.text     "detail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "expenses", force: :cascade do |t|
+    t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,6 +57,20 @@ ActiveRecord::Schema.define(version: 20170222013715) do
 
   create_table "timelines", force: :cascade do |t|
     t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "turn_details", force: :cascade do |t|
+    t.string   "when"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "turn_id"
+  end
+
+  create_table "turns", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

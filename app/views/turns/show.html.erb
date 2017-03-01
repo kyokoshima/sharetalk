@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @turn.name %>
+  <% @turn.turn_details.each do |detail| %>
+  	<%= detail.when %>
+  	<% detail.user_id %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_turn_path(@turn) %> |
+<%= link_to 'Back', turns_path %>
