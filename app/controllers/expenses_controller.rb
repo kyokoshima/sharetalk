@@ -22,6 +22,7 @@ end
       cost = Cost.new
       @expense.costs << cost
     end
+    @expense.costs.build
   end
 
   # GET /expenses/1/edit
@@ -34,13 +35,6 @@ end
     @expense = Expense.new(expense_params)
     # @cost = Cost.new(expense_params[:costs])
     # @expense.costs.build(expense_params[:costs])
-
-    # if @expense.save
-    #   redirect_to @expense
-    # else
-    #   render :action => 'new'
-    # end
-
     respond_to do |format|
       if @expense.save
         format.html { redirect_to @expense, notice: 'Expense was successfully created.' }
@@ -84,6 +78,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def expense_params
-      params.require(:expense).permit(:title, :costs => [:subject, :cost, :detail] )
+      params.require(:expense).permit(:title, cost_attributes: [:subject, :cost, :detail] )
     end
 end
