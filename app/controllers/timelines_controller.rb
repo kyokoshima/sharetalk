@@ -26,13 +26,15 @@ class TimelinesController < ApplicationController
   # POST /timelines.json
   def create
     @timeline = Timeline.new(timeline_params)
+    @timeline.user = current_user
+    @timeline.image = current_user
 
     respond_to do |format|
       if @timeline.save
         format.html { redirect_to }
         format.json { render :show, status: :created, location: @timeline }
       else
-        flash[:notice] = "1~75字で入力してください。"
+        flash[:notice] = @timeline.errors #"1~75字で入力してください。"
         format.html {redirect_to action: 'index', alert: ''}
         format.html { render :new }
         format.json { render json: @timeline.errors, status: :unprocessable_entity }
