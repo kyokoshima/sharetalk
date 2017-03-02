@@ -4,7 +4,7 @@
 
 <table>
   <thead>
-    <tr>
+      <th>name</th>
       <th>Image</th>
       <th>Hobby</th>
       <th>Birthday</th>
@@ -15,7 +15,8 @@
   <tbody>
     <% @profiles.each do |profile| %>
       <tr>
-        <td><%= image_tag profile.image.url(:medium) %></td>
+        <td><%= profile.name %></td>
+        <td class="profile-image"><%= image_tag profile.image.url(:medium) %></td>
         <td><%= profile.hobby %></td>
         <td><%= profile.birthday %></td>
         <td><%= link_to 'Show', profile %></td>
