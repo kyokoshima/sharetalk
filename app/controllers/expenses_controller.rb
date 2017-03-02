@@ -10,10 +10,9 @@ class ExpensesController < ApplicationController
   # GET /expenses/1
   # GET /expenses/1.json
   def show
-end
-end
-
+    @cost = Cost.new
   end
+
 
   # GET /expenses/new
   def new

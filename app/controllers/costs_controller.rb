@@ -10,6 +10,7 @@ class CostsController < ApplicationController
   # GET /costs/1
   # GET /costs/1.json
   def show
+    
   end
 
   # GET /costs/new
