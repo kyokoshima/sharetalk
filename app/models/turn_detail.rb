@@ -1,4 +1,5 @@
 class TurnDetail < ApplicationRecord
-	belongs_to :turn, inverse_of: :turn_details
+	has_one :user
+	belongs_to :turn, inverse_of: :turn_details, optional: true
 	validates :when, presence: true
 end

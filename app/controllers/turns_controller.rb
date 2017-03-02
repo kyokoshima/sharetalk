@@ -16,6 +16,7 @@ class TurnsController < ApplicationController
   def new
     @turn = Turn.new
     @turn.turn_details.build
+    @users = User.all
   end
 
   # GET /turns/1/edit
