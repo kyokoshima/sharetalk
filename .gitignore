@@ -19,3 +19,11 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+vendor/bundle
+public/system
+
+Gemfile.lock
+
+.DS_Store
+*.swp

@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
+
   resources :expenses do
   	resources :costs
   end
+
+  devise_for :users
+  root :to => "home#index"
+
+
+  resources :profiles
+  resources :timelines
   resources :profiles
   resources :groups
   resources :events
