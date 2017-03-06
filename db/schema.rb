@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20170301094005) do
 
   create_table "costs", force: :cascade do |t|
@@ -21,7 +20,6 @@ ActiveRecord::Schema.define(version: 20170301094005) do
     t.datetime "updated_at", null: false
     t.integer  "expense_id"
   end
-
 
   create_table "events", force: :cascade do |t|
     t.string   "title"

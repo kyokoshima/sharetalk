@@ -15,8 +15,10 @@
         <td><%= image_tag timeline.user.profile.image.url(:medium) %></td>
         <td><%= timeline.content %></td>
         <td><%= link_to '詳細表示', timeline %></td>
-        <td><%= link_to '編集', edit_timeline_path(timeline) %></td>
-        <td><%= link_to 'Destroy', timeline, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.id == timeline.user.id %>
+          <td><%= link_to '編集', edit_timeline_path(timeline) %></td>
+          <td><%= link_to 'Destroy', timeline, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
