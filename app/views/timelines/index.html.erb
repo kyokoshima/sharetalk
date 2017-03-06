@@ -11,7 +11,7 @@
     <% @timelines.each do |timeline| %>
       <tr class="timeline">
         <td><img src=""></td>
-        <td><%= timeline.user.profile.name %></td>
+        <td><%= link_to timeline.user.profile.name, profile_path(timeline.user.profile.id) %></td>
         <td><%= image_tag timeline.user.profile.image.url(:medium) %></td>
         <td><%= timeline.content %></td>
         <td><%= link_to '詳細表示', timeline %></td>
