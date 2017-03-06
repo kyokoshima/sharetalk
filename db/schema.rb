@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170301094005) do
 
+
   create_table "costs", force: :cascade do |t|
     t.string   "subject"
     t.integer  "cost"
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 20170301094005) do
     t.datetime "updated_at", null: false
   end
 
+
   create_table "expenses_users", id: false, force: :cascade do |t|
     t.integer "expense_id", null: false
     t.integer "user_id",    null: false
@@ -43,9 +45,16 @@ ActiveRecord::Schema.define(version: 20170301094005) do
     t.index ["user_id"], name: "index_expenses_users_on_user_id"
   end
 
+
   create_table "groups", force: :cascade do |t|
     t.string   "name"
     t.text     "detail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -61,10 +70,26 @@ ActiveRecord::Schema.define(version: 20170301094005) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "name"
+    t.integer  "user_id"
   end
 
   create_table "timelines", force: :cascade do |t|
     t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
+  create_table "turn_details", force: :cascade do |t|
+    t.string   "when"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "turn_id"
+  end
+
+  create_table "turns", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
