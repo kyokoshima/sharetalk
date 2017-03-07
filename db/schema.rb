@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20170301094005) do
+ActiveRecord::Schema.define(version: 20170303091331) do
 
   create_table "costs", force: :cascade do |t|
     t.string   "subject"
@@ -22,10 +21,12 @@ ActiveRecord::Schema.define(version: 20170301094005) do
     t.integer  "expense_id"
   end
 
-=======
-ActiveRecord::Schema.define(version: 20170222013715) do
+  create_table "costs_expenses", id: false, force: :cascade do |t|
+    t.integer "expense_id", null: false
+    t.integer "cost_id",    null: false
+    t.index ["expense_id", "cost_id"], name: "index_costs_expenses_on_expense_id_and_cost_id"
+  end
 
->>>>>>> origin/master
   create_table "events", force: :cascade do |t|
     t.string   "title"
     t.datetime "date"
@@ -35,7 +36,15 @@ ActiveRecord::Schema.define(version: 20170222013715) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
+  create_table "expense_users", force: :cascade do |t|
+    t.integer  "expense_id"
+    t.integer  "user_id"
+    t.integer  "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["expense_id", "user_id"], name: "index_expense_users_on_expense_id_and_user_id"
+  end
+
   create_table "expenses", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at", null: false
@@ -43,28 +52,12 @@ ActiveRecord::Schema.define(version: 20170222013715) do
     t.integer  "expense_id"
   end
 
-  create_table "expenses_users", id: false, force: :cascade do |t|
-    t.integer "expense_id", null: false
-    t.integer "user_id",    null: false
-    t.index ["expense_id"], name: "index_expenses_users_on_expense_id"
-    t.index ["user_id"], name: "index_expenses_users_on_user_id"
-  end
-
-=======
->>>>>>> origin/master
   create_table "groups", force: :cascade do |t|
     t.string   "name"
     t.text     "detail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-<<<<<<< HEAD
-
-  create_table "profiles", force: :cascade do |t|
-    t.string   "image"
-    t.string   "hobby"
-    t.datetime "birthday"
-=======
 
   create_table "profiles", force: :cascade do |t|
     t.string   "image"
@@ -81,13 +74,10 @@ ActiveRecord::Schema.define(version: 20170222013715) do
 
   create_table "timelines", force: :cascade do |t|
     t.text     "content"
->>>>>>> origin/master
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
-=======
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -105,5 +95,4 @@ ActiveRecord::Schema.define(version: 20170222013715) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
->>>>>>> origin/master
 end

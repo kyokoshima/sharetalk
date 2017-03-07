@@ -18,12 +18,12 @@ class ExpensesController < ApplicationController
     @expense = Expense.new
     cost = Cost.new
     @expense.costs << cost
-    @users = User.all
-    # @expense.costs.build
+    @expense.expense_users << User.all.map {|u| ExpenseUser.new ({user_id: u.id}) }
   end
 
   # GET /expenses/1/edit
   def edit
+
   end
 
   # POST /expenses
@@ -75,6 +75,6 @@ class ExpensesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def expense_params
-      params.require(:expense).permit(:title, costs_attributes: [:subject, :cost, :detail] )
+      params.require(:expense).permit(:title, costs_attributes: [:subject, :cost, :detail, :_destroy, :id], expense_users_attributes: [:user_id]  )
     end
 end

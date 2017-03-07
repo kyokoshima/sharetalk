@@ -18,9 +18,9 @@
 </p>
 <% end %>
 
-<!-- <% @expense.costs.each do |cost| %> -->
-	<!-- <p>x = x + <%= cost.cost %></p> -->
-<!-- <% end %> -->
+<% @expense.users.each do |user| %>
+	<%= user.email %>
+<% end %>
 
 <%= render 'costs/form', cost: @cost, expense: @expense %>
 
