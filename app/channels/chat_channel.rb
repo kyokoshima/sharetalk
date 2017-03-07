@@ -8,7 +8,7 @@ class ChatChannel < ApplicationCable::Channel
     # Any cleanup needed when channel is unsubscribed
   end
 
-  def put_message
-    ChatChannel.broadcast_to('message', 'hello')
+  def put_message(data)
+    ChatChannel.broadcast_to('message', data['msg'])
   end
 end

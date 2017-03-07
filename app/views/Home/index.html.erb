@@ -1,1 +1,7 @@
 <h1>ログイン確認用ホーム</h1>
+<ul id="message-list">
+</ul>
+<%= form_tag '#', id: 'message' do %>
+  <%= text_field_tag 'body' %>
+<% end %>
+<p>日本語使えないゾ</p>
