@@ -1,3 +1,55 @@
 // Place all the styles related to the Timelines controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #e9ebee;
+}
+.header {
+	width: 100%;
+	background-color: #2fcdb4;
+
+}
+
+.post {
+	margin: 0 auto;
+	width: 400px;
+	background-color: white;
+	border-style: ridge;
+	display: flex;
+}
+
+.post .new_timeline{
+	margin: 0 auto;
+}
+
+body table tbody tr .timeline{
+	border-style: ridge;
+	padding: center;
+}
+
+textarea {
+	width: 250px;
+	height: 10em;
+	margin: center;
+}
+
+.timeline{
+	border-style: ridge;
+}
+#notice {
+	display: none;
+}
+.actions {
+	color: red;
+}
+/*h1 {
+	/*background-color: #2fcdb4;*/
+/*	font-family:  "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, Meiryo, sans-serif;
+*/
