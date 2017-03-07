@@ -6,4 +6,11 @@ class Expense < ApplicationRecord
 	accepts_nested_attributes_for :users, reject_if: :all_blank
 	accepts_nested_attributes_for :expense_users, reject_if: :all_blank
 	validates :title, :presence => true
+	def total_cost
+		total = 0
+		costs.each do |c|
+		  total = total + c.cost
+		end
+		total
+	end
 end
