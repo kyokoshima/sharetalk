@@ -42,7 +42,12 @@ textarea {
 
 .timeline{
 	border-style: ridge;
-
+}
+#notice {
+	display: none;
+}
+.actions {
+	color: red;
 }
 /*h1 {
 	/*background-color: #2fcdb4;*/
