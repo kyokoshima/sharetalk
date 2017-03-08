@@ -25,15 +25,7 @@
     </div>
   </div>
 
-
-  <div class="nested-fields">
-    <%= f.fields_for :expense_users  do |user| %>
-      <div class="field">
-        <%= user.label :user_id %>
-        <%= user.check_box :user_id, {}, user.object.user_id, false %>
-      </div>
-    <% end %>
-  </div>
+  <%= render 'new_user_form', f: f, users: @users %>
 
   <div class="nested-fields">
     <% User.all do |user| %>

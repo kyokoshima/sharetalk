@@ -5,6 +5,6 @@ class User < ApplicationRecord
   has_many :timelines
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :expenses_users
+  has_many :expenses_users, inverse_of: :user
   has_many :expenses, through: :expenses_users
 end
