@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170225044316) do
+ActiveRecord::Schema.define(version: 20170303091331) do
 
   create_table "costs", force: :cascade do |t|
     t.string   "subject"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20170225044316) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "expense_id"
+  end
 
   create_table "events", force: :cascade do |t|
     t.string   "title"
@@ -27,6 +28,15 @@ ActiveRecord::Schema.define(version: 20170225044316) do
     t.text     "detail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "expense_users", force: :cascade do |t|
+    t.integer  "expense_id"
+    t.integer  "user_id"
+    t.integer  "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["expense_id", "user_id"], name: "index_expense_users_on_expense_id_and_user_id"
   end
 
   create_table "expenses", force: :cascade do |t|
@@ -53,12 +63,21 @@ ActiveRecord::Schema.define(version: 20170225044316) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "name"
+    t.integer  "user_id"
   end
 
   create_table "timelines", force: :cascade do |t|
     t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
+  create_table "turn_detail_users", force: :cascade do |t|
+    t.integer  "turn_detail_id"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "turn_details", force: :cascade do |t|
