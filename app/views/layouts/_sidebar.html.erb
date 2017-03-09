@@ -1,0 +1,22 @@
+<ul id="sidebar">
+	<li class="sidebar_profile">
+		<%= profile_image %>
+		<%= link_to current_user.profile.name, profile_path(current_user.profile) %>
+	</li>
+	<li>
+		<%= image_tag("icon_home.png") %>
+		<%= link_to 'HOME', timelines_path %>
+	</li>
+	<li>
+		<%= image_tag("icon_group.png") %>
+		<%=  link_to 'グループ', groups_path %>
+	</li>
+	<li>
+		<%= image_tag("icon_event.png") %>
+		<%=  link_to 'イベント', events_path %>
+	</li>
+	<li>
+		<%= image_tag("icon_expense.png") %>
+		<%=  link_to '経費', expenses_path %>
+	</li>
+</ul>

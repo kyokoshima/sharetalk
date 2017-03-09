@@ -13,7 +13,6 @@ class ExpensesController < ApplicationController
     @cost = Cost.new
   end
 
-
   # GET /expenses/new
   def new
     @expense = Expense.new
@@ -78,7 +77,8 @@ class ExpensesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def expense_params
       params.require(:expense).permit(
-          :title, 
-          costs_attributes: [:subject, :cost, :detail, :_destroy, :id], expense_users_attributes: [:id, :user_id, :_destroy]  )
+          :title,
+          costs_attributes: [:subject, :cost, :detail, :_destroy, :id],
+          expense_users_attributes: [:id, :user_id, :_destroy]  )
     end
 end
