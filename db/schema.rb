@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20170303091331) do
+ActiveRecord::Schema.define(version: 20170301020518) do
 
   create_table "costs", force: :cascade do |t|
     t.string   "subject"
@@ -48,6 +49,12 @@ ActiveRecord::Schema.define(version: 20170303091331) do
   create_table "groups", force: :cascade do |t|
     t.string   "name"
     t.text     "detail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
