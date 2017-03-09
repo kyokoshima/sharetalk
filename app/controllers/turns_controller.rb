@@ -72,6 +72,6 @@ class TurnsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def turn_params
-      params.require(:turn).permit(:name, turn_details_attributes:[:id, :when, :user_id])
+      params.require(:turn).permit(:name, turn_details_attributes:[:id, :when, turn_detail_users_attributes: [:id, :user_id]])
     end
 end

@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170303091331) do
-ActiveRecord::Schema.define(version: 20170301020518) do
+ActiveRecord::Schema.define(version: 20170309102659) do
 
   create_table "costs", force: :cascade do |t|
     t.string   "subject"
@@ -53,12 +52,6 @@ ActiveRecord::Schema.define(version: 20170301020518) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "profiles", force: :cascade do |t|
     t.string   "image"
     t.string   "hobby"
@@ -89,7 +82,6 @@ ActiveRecord::Schema.define(version: 20170301020518) do
 
   create_table "turn_details", force: :cascade do |t|
     t.string   "when"
-    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "turn_id"

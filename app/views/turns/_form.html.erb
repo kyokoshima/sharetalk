@@ -21,10 +21,13 @@
       <%= detail.label :when %>
       <%= detail.text_field :when %>
     </div>
-<!--<div class="field">
-      <%= detail.label :user_id %>
-      <%= detail.number_field :user_id %>
-    </div> -->
+    <%= detail.fields_for :turn_detail_users, User.all.map { |u| TurnDetailUser.new({user_id: u.id})} do |tdu| %>
+      <div>
+        <%= tdu.check_box :user_id,{},tdu.object.user.id,false %> <!-- tdu.object = turn_detail_users -->
+        <%= tdu.label tdu.object.user.profile.name %>
+        <%= tdu.hidden_field :id %>
+      </div>
+    <% end %>
   <% end %>
   <div class="actions">
     <%= f.submit %>

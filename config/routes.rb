@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   resources :turns do
     resources :turn_details
   end
-  devise_for :users
   devise_for :users, controllers: { registrations: :registrations }
   root :to => "home#index"
 

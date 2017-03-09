@@ -5,4 +5,5 @@ class User < ApplicationRecord
   has_many :timelines
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  has_many :turn_detail_users, inverse_of: :users
 end
