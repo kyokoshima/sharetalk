@@ -30,6 +30,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem 'kaminari'
+gem 'cocoon'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -43,6 +44,12 @@ gem 'devise'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
+  gem 'pry-stack_explorer'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :development do
