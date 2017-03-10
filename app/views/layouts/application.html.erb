@@ -16,7 +16,9 @@
        <p class="alert"><%= alert %></p>
        
     <% if user_signed_in? %>
-    <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
-  <% end %>
+      <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
+    <% else %>
+      <%= link_to 'ログイン', new_user_session_path %>
+    <% end %>
   </body>
 </html>

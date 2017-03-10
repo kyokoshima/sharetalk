@@ -1,7 +1,7 @@
 class MessageChannel < ApplicationCable::Channel
   def subscribed
     # stream_from "some_channel"
-    stream_from 'all'
+    stream_from 'message'
   end
 
   def unsubscribed
@@ -9,6 +9,6 @@ class MessageChannel < ApplicationCable::Channel
   end
 
   def create_message(data)
-    ActionCable.server.broadcast 'all', {name: current_user['test'], content: data['message']}
+    ActionCable.server.broadcast 'message', {name: current_user.email, content: data['message']}
   end
 end
