@@ -15,7 +15,7 @@ class TimelinesController < ApplicationController
 
   # GET /timelines/new
   def new
-    @timeline = Timeline.new
+    # @timeline = Timeline.new
   end
 
   # GET /timelines/1/edit
@@ -26,12 +26,15 @@ class TimelinesController < ApplicationController
   # POST /timelines.json
   def create
     @timeline = Timeline.new(timeline_params)
+    @timeline.user = current_user
 
     respond_to do |format|
       if @timeline.save
         format.html { redirect_to }
         format.json { render :show, status: :created, location: @timeline }
       else
+        flash[:notice] = @timeline.errors #"1~75字で入力してください。"
+        format.html {redirect_to action: 'index', alert: ''}
         format.html { render :new }
         format.json { render json: @timeline.errors, status: :unprocessable_entity }
       end
@@ -71,6 +74,6 @@ class TimelinesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def timeline_params
-      params.require(:timeline).permit(:content)
+      params.require(:timeline).permit(:content, :user_id)
     end
 end

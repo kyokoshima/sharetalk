@@ -1,5 +1,8 @@
 <h1>Editing Profile</h1>
-
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @profile.image.url(:medium) %>
+</p>
 <%= render 'form', profile: @profile %>
 
 <%= link_to 'Show', @profile %> |
