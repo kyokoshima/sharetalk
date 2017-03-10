@@ -1,12 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<div class="turn_name">
+	<strong>Name:</strong>
   <%= @turn.name %>
-  <% @turn.turn_details.each do |detail| %>
+ </div>
+<div class="turn_when">
+	<strong>When:</strong>
+	<% @turn.turn_details.each do |detail| %>
   	<%= detail.when %>
-  <% end %>
-</p>
+ 	<% end %>
+</div>
+<div class="turn_detail_users">
+	
+</div>
 
 <%= link_to 'Edit', edit_turn_path(@turn) %> |
 <%= link_to 'Back', turns_path %>

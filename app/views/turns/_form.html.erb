@@ -23,8 +23,8 @@
     </div>
     <%= detail.fields_for :turn_detail_users, User.all.map { |u| TurnDetailUser.new({user_id: u.id})} do |tdu| %>
       <div>
-        <%= tdu.check_box :user_id,{},tdu.object.user.id,false %> <!-- tdu.object = turn_detail_users -->
-        <%= tdu.label tdu.object.user.profile.name %>
+        <%= tdu.check_box :user_id, {}, tdu.object.user.id, false %> <!-- tdu.object = turn_detail_users -->
+        <%= tdu.label tdu.object.user.profile.name if present? %>
         <%= tdu.hidden_field :id %>
       </div>
     <% end %>
