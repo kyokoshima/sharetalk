@@ -1,0 +1,52 @@
+<%= form_for expense do |f| %>
+  <% if expense.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(expense.errors.count, "error") %> prohibited this expense from being saved:</h2>
+
+      <ul>
+      <% expense.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div id="costs">
+    <%= f.fields_for :costs do |cost| %>
+      <%= render 'cost_fields', f: cost %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'add cost', f, :costs %>
+    </div>
+  </div>
+
+<div class="nested-fields">
+  <%= f.fields_for :expense_users, users do |builder| %>
+    <div class="field">
+      <%= builder.label :email, builder.object.user.email %>
+      <%= builder.check_box :user_id, {}, builder.object.user.id, false %>
+      <%= builder.hidden_field :id %>
+      <%= builder.check_box '_destroy' %>
+    </div>
+  <% end %>
+</div>
+
+  <div class="nested-fields">
+    <% User.all do |user| %>
+      <div class="field">
+        <%= label_tag user.id %>
+        <%= check_box_tag user.id, {}, user.id, false %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

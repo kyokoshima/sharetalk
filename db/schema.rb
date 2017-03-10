@@ -10,16 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170301094005) do
-
-  create_table "costs", force: :cascade do |t|
-    t.string   "subject"
-    t.integer  "cost"
-    t.text     "detail"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "expense_id"
-  end
+ActiveRecord::Schema.define(version: 20170310051248) do
 
   create_table "events", force: :cascade do |t|
     t.string   "title"
@@ -30,24 +21,31 @@ ActiveRecord::Schema.define(version: 20170301094005) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "expenses", force: :cascade do |t|
-    t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "expenses_users", id: false, force: :cascade do |t|
-    t.integer "expense_id", null: false
-    t.integer "user_id",    null: false
-    t.index ["expense_id"], name: "index_expenses_users_on_expense_id"
-    t.index ["user_id"], name: "index_expenses_users_on_user_id"
-  end
-
   create_table "groups", force: :cascade do |t|
     t.string   "name"
     t.text     "detail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "message_group_users", id: false, force: :cascade do |t|
+    t.integer "message_group_id"
+    t.integer "user_id"
+    t.index ["message_group_id"], name: "index_message_group_users_on_message_group_id"
+    t.index ["user_id"], name: "index_message_group_users_on_user_id"
+  end
+
+  create_table "message_groups", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "content"
+    t.integer  "message_group_id"
   end
 
   create_table "profiles", force: :cascade do |t|
