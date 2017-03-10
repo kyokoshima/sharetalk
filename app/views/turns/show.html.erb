@@ -8,11 +8,14 @@
 	<strong>When:</strong>
 	<% @turn.turn_details.each do |detail| %>
   	<%= detail.when %>
- 	<% end %>
 </div>
-<div class="turn_detail_users">
-	
-</div>
+	<div class="turn_user">
+		<strong>Users:</strong>
+		<% detail.users.each do |tdu| %>
+	  	<%= tdu.profile.name %>
+	</div>
+	<% end %>
+<% end %>
 
 <%= link_to 'Edit', edit_turn_path(@turn) %> |
 <%= link_to 'Back', turns_path %>
