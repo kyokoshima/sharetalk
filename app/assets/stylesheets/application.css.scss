@@ -14,3 +14,25 @@
  *= require_self
  */
 @import "timelines";
+@import "materialize";
+
+
+#login{
+  background:url(sharetalk.jpg);
+  background-size: cover;
+  height:100vh;
+}
+
+#login-page{
+  width: 300px;
+}
+
+#signin{
+  background:url(sharetalk.jpg);
+  background-size: cover;
+  height:100vh;
+}
+
+#signin-page{
+  width: 300px;
+}
