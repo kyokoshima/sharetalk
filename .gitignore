@@ -24,6 +24,6 @@ vendor/bundle
 public/system
 db/schema.rb
 Gemfile.lock
-
+db/schema.rb
 .DS_Store
 *.swp
