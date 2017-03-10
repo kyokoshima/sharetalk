@@ -21,15 +21,17 @@
         <td><%= profile.name %></td>
         <td class="profile-image">
         <% if profile.image.present? %>
-        <%= image_tag profile.image.url(:medium) %></td>
+          <%= image_tag profile.image.url(:medium) %></td>
         <% else %>
-        <%= image_tag "no_img.png" %>
+          <%= image_tag "no_img.png" %>
         <% end %>
         <td><%= profile.hobby %></td>
         <td><%= profile.birthday %></td>
         <td><%= link_to 'Show', profile %></td>
-        <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.id == profile.user.id %>
+          <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
+          <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
