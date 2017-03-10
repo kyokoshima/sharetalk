@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170308015605) do
+ActiveRecord::Schema.define(version: 20170310051248) do
 
   create_table "events", force: :cascade do |t|
     t.string   "title"
@@ -28,9 +28,24 @@ ActiveRecord::Schema.define(version: 20170308015605) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "messages", force: :cascade do |t|
+  create_table "message_group_users", id: false, force: :cascade do |t|
+    t.integer "message_group_id"
+    t.integer "user_id"
+    t.index ["message_group_id"], name: "index_message_group_users_on_message_group_id"
+    t.index ["user_id"], name: "index_message_group_users_on_user_id"
+  end
+
+  create_table "message_groups", force: :cascade do |t|
+    t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "content"
+    t.integer  "message_group_id"
   end
 
   create_table "profiles", force: :cascade do |t|

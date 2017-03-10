@@ -5,4 +5,5 @@ class User < ApplicationRecord
   has_many :timelines
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  has_and_belongs_to_many :message_group_users
 end
