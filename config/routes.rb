@@ -4,7 +4,6 @@ Rails.application.routes.draw do
     resources :turn_details
   end
   devise_for :users, controllers: { registrations: :registrations }
-  root :to => "home#index"
 
   resources :expenses do
   	resources :costs
