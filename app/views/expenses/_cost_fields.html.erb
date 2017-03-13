@@ -1,18 +1,24 @@
 <div class="nested-fields">
-  <div class="field">
-    <%= f.label :subject %>
-    <%= f.text_field :subject %>
-  </div>
-  <div class="field">
-    <%= f.label :cost %>
-    <%= f.text_field :cost %>
-  </div>
-  <div class="field">
-    <%= f.label :detail %>
-    <%= f.text_field :detail %>
-  </div>
-  <div class="links">
-  <%= link_to_remove_association "remove cost", f %>
-  </div>
+<div  class="res-table">
+
+<tr>
+<th><%= f.label :subject %></th>
+<td><%= f.text_field :subject %></td>
+</tr>
+<tr>
+<th><%= f.label :cost %></th>
+<td><%= f.text_field :cost %></td>
+</tr>
+<tr>
+<th><%= f.label :detail %></th>
+<td><%= f.text_field :detail %></td>
+</tr>
+</table>
 </div>
+<td class="links">
+  <%= link_to_remove_association "remove cost", f %>
+</td>
+</div>
+
+
 

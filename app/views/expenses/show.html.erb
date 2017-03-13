@@ -1,27 +1,39 @@
 <p id="notice"><%= notice %></p>
+<div class="header">
+  <h1>ShareTalk</h1>
+</div>
 
-<p>
+<table class="table-show">
+<tbody>
+<div>
   <strong>Title:</strong>
   <%= @expense.title %>
-</p>
+
+<tr>
+	<th>Subject</th>
+	<th>Cost</th>
+	<th>Detail</th>
+</tr>
 
 <% @expense.costs.each do |cost| %>
-<p>
-  <strong>Subject:</strong>
-  <%= cost.subject %>
 
-  <strong>Cost:</strong> ¥
-  <%= cost.cost %>
 
-	<strong>Detail:</strong>
-  <%= cost.detail %>
-</p>
+<tr>
+	<td><%= cost.subject %></td>
+	<td><%= cost.cost %></td>
+	<td><%= cost.detail %></td>
+</tr>
+
+
+
 <% end %>
+</tbody>
+</table>
 
 <p>
 <strong>代金合計</strong> ¥
 <%= @expense.total_cost %>
-</p>
+</div>
 
 
 <%= render 'costs/form', cost: @cost, expense: @expense %>

@@ -12,8 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+  <table class="table-new">
+    <th><%= f.label :title %></th>
+    <td><%= f.text_field :title %></td>
+
   </div>
 
   <%= f.fields_for :costs do |cost| %>
