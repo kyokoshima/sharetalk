@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'Luckiest Guy';
+    src:url('LuckiestGuy.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}   
+
+nav {
+  .brand-logo {
+    font-weight: 900;
+    text-shadow: 2px 2px 5px gray;
+    color: #e9ce2c;
+    font-family: 'Luckiest Guy', cursive;
+		letter-spacing: 0.2em;
+		font-size: 3em;
+		line-height: 1.7em;
+  }
+	margin-bottom: 24px;
+}

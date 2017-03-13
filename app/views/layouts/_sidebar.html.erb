@@ -1,4 +1,4 @@
-<ul id="sidebar">
+<ul id="sidebar" class="sidenavi fixed">
 	<li class="sidebar_profile">
 		<%= profile_image %>
     <% if current_user.profile.present? %>
@@ -26,6 +26,10 @@
 		<%= image_tag("icon_expense.png") %>
 		<%=  link_to '経費', expenses_path %>
 	</li>
+  <li>
+    <%= link_to  message_groups_path do %>
+      <i class="material-icons">chat</i> メッセージ
+    <% end %>
+  </li>
 </ul>
 
-<div id="container">

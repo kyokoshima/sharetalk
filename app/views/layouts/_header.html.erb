@@ -1,9 +1,16 @@
 <nav>
   <div class="nav-wrapper">
-    <div class="col s12">
-      <%= link_to root_path, class: 'brand-logo' do %>
-        ShareTalk
-      <% end %>
+    <div class="container">
+      <div class="col s12">
+        <%= link_to root_path, class: 'brand-logo' do %>
+          ShareTalk
+        <% end %>
+        <ul class="right hide-on-med-and-down">
+          <li>
+            <%= user_signed_in? ? link_to('ログアウト', destroy_user_session_path, method: :delete) : link_to('ログイン', new_user_session_path) %>   
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </nav>
