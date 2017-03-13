@@ -10,7 +10,7 @@
   <tbody>
     <% @timelines.each do |timeline| %>
       <tr class="timeline">
-        <td><img src=""></td>
+        <td><%= time_ago_in_words(timeline.created_at) + "前" %></td>
         <td>
           <% if timeline.user.profile.name.present? %>
             <%= link_to timeline.user.profile.name, profile_path(timeline.user.profile.id) %></td>
