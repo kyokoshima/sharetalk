@@ -10,6 +10,9 @@
 	<li>
 		<%= image_tag("icon_home.png") %>
 		<%= link_to 'HOME', timelines_path %>
+		<div class="unread_count">
+			<%= Timeline.unread_by(current_user).count if Timeline.unread_by(current_user).count > 0 %>
+		</div>
 	</li>
 	<li>
 		<%= image_tag("icon_group.png") %>
@@ -24,3 +27,5 @@
 		<%=  link_to '経費', expenses_path %>
 	</li>
 </ul>
+
+<div id="container">

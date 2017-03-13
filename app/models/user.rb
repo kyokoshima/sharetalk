@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :expenses_users, inverse_of: :user
   has_many :expenses, through: :expenses_users
   has_and_belongs_to_many :message_group_users
+  acts_as_reader
 end

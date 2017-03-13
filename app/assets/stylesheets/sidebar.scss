@@ -1,9 +1,17 @@
+#container {
+	position: absolute;
+	top: 48px;
+	left: 200px;
+}
 #sidebar {
 	width: 200px;
-	height: 100vh;
+	height: 100%;
 	padding: 0 10px 0 5px;
 	float: left;
 	overflow: auto;
+	position: absolute;
+	left: 0;
+	top: 48px;
 
 	a {
 		text-decoration: none;
@@ -23,6 +31,7 @@
 		font-size: 14px;
 		border-radius: 2px;
 		border: 1px solid transparent;
+		position: relative;
 	}
 	li:hover {
 		border: 1px solid rgba(0,0,0,0.2);
@@ -40,5 +49,11 @@
 	}
 	.sidebar_profile img {
 		filter: none;
+	}
+	.unread_count {
+		font-size: 14px;
+		position: absolute;
+		top: 0;
+		right: 9%;
 	}
 }
