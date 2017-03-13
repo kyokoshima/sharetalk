@@ -6,4 +6,10 @@ class Profile < ApplicationRecord
   # ファイルの拡張子を指定（これがないとエラーが発生する）
   validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
 
+def user_id
+	# user = User.find(params[:id])
+	# @user_idname = user.email.match(/^([\w\.]*)(@.*)/)[1]
+	user.email.match(/^([\w\.]*)(@.*)/)[1]
+end
+
 end
