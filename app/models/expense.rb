@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: expenses
+#
+#  id         :integer          not null, primary key
+#  title      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Expense < ApplicationRecord
 	has_many :expense_users, inverse_of: :expense
 	has_many :users, through: :expense_users
