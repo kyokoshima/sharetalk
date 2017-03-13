@@ -7,4 +7,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :expenses_users, inverse_of: :user
   has_many :expenses, through: :expenses_users
+  acts_as_reader
 end
