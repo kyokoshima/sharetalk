@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<input type="text" id="message-box">
+
+<input type="button" id="send-btn" value="送信">
+
+<table id="chat-table"></table>
+
+<ul id="message-list">
+</ul>
+<%= form_tag '#', id: 'message' do %>
+  <%= text_field_tag 'body' %>
+<% end %>
+<p>日本語使えないゾ</p>
+
+<%= link_to 'New Message', new_message_path %>
