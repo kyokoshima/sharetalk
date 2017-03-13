@@ -1,7 +1,11 @@
 <ul id="sidebar">
 	<li class="sidebar_profile">
 		<%= profile_image %>
+    <% if current_user.profile.present? %>
 		<%= link_to current_user.profile.name, profile_path(current_user.profile) %>
+    <% else %>
+      <span style="font-size: 20pt; color: red;">プロフィールが無い！！</span>
+    <% end %>
 	</li>
 	<li>
 		<%= image_tag("icon_home.png") %>
