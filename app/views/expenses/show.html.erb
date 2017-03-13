@@ -18,9 +18,11 @@
 </p>
 <% end %>
 
-<% @expense.costs.each do |cost| %>
-	x = x + <%= cost.cost %>
-<% end %>
+<p>
+<strong>代金合計</strong> ¥
+<%= @expense.total_cost %>
+</p>
+
 
 <%= render 'costs/form', cost: @cost, expense: @expense %>
 
