@@ -9,7 +9,7 @@ class Profile < ApplicationRecord
 def name
 	# user = User.find(params[:id])
 	# @user_idname = user.email.match(/^([\w\.]*)(@.*)/)[1]
-	name || user.email.match(/^([\w\.]*)(@.*)/)[1]
+	read_attribute :name || user.email.split('@')[0]
 end
 
 end
