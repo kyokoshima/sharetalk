@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
-
   
   resources :turns do
     resources :turn_details
-  end
-  
-  resources :expenses do
-  	resources :costs
   end
 
   devise_for :users, skip: [:sessions, :registrations] #deviseのデフォルトのpathを削除
@@ -27,5 +22,13 @@ Rails.application.routes.draw do
   resources :timelines
   resources :groups
   resources :events
+
+  resources :expenses do
+  	resources :costs
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :message_groups do
+    resources :messages
+  end
+  
 end

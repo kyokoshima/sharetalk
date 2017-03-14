@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170310051248) do
+
+ActiveRecord::Schema.define(version: 20170310085256) do
 
   create_table "costs", force: :cascade do |t|
     t.string   "subject"
@@ -91,6 +92,15 @@ ActiveRecord::Schema.define(version: 20170310051248) do
     t.datetime "image_updated_at"
     t.string   "name"
     t.integer  "user_id"
+  end
+
+  create_table "read_marks", force: :cascade do |t|
+    t.string   "readable_type", null: false
+    t.integer  "readable_id"
+    t.string   "reader_type",   null: false
+    t.integer  "reader_id"
+    t.datetime "timestamp"
+    t.index ["reader_id", "reader_type", "readable_type", "readable_id"], name: "read_marks_reader_readable_index", unique: true
   end
 
   create_table "timelines", force: :cascade do |t|

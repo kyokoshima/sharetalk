@@ -23,3 +23,9 @@ window.addEventListener('load', () => {
        return false;
    }
 });
+//window.addEventListener('load', () => {
+//   document.getElementById('message').onsubmit = () => {
+//       App.chat.put_message(document.getElementById('body').value);
+//       return false;
+//   }
+//});

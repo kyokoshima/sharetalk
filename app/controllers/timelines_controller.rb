@@ -6,6 +6,8 @@ class TimelinesController < ApplicationController
   def index
     @timelines = Timeline.all.order(:id).reverse_order
     @timeline = Timeline.new
+    @timelines.each {|tl| tl.mark_as_read! :for => current_user }
+    @timelines
   end
 
   # GET /timelines/1
