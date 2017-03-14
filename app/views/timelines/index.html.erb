@@ -1,7 +1,5 @@
 <p id="notice"><%= notice %></p>
-<div class="header">
-  <h1>ShareTalk</h1>
-</div>
+
 <div class="post">
   <%= render 'form', timeline: @timeline %>
 </div>
@@ -49,3 +47,6 @@
 </table>
 
 <br>
+<br>
+
+<%= link_to 'New Timeline', new_timeline_path %>

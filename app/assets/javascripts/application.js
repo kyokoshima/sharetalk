@@ -13,5 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require materialize-sprockets
 //= require_tree .
 //= require cocoon
+
+//window.addEventListener('load', () => {
+//   document.getElementById('message').onsubmit = () => {
+//       App.chat.put_message(document.getElementById('body').value);
+//       return false;
+//   }
+//});

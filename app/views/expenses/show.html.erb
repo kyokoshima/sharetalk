@@ -18,11 +18,14 @@
 </p>
 <% end %>
 
+<% @expense.users.each do |user| %>
+	<%= user.email %>
+<% end %>
+
 <p>
 <strong>代金合計</strong> ¥
 <%= @expense.total_cost %>
 </p>
-
 
 <%= render 'costs/form', cost: @cost, expense: @expense %>
 

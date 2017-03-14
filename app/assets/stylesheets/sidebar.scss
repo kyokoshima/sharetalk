@@ -1,0 +1,60 @@
+#container {
+	position: absolute;
+	top: 48px;
+	left: 200px;
+}
+#sidebar {
+/*	width: 200px;
+	height: 100%;
+	padding: 0 10px 0 5px;
+	float: left;
+	overflow: auto;
+	position: absolute;
+	left: 0;
+	top: 48px;
+ */
+
+	a {
+		text-decoration: none;
+		color: black;
+		display: block;
+	}
+	a:hover {
+		color: #2fcdb4;
+	}
+	li {
+		list-style-type: none;
+		width: 96%;
+		height: 30px;
+		margin: 5% 2%;
+		padding: 0 2%;
+		line-height: 30px;
+		font-size: 14px;
+		border-radius: 2px;
+		border: 1px solid transparent;
+		position: relative;
+	}
+	li:hover {
+		border: 1px solid rgba(0,0,0,0.2);
+		background-color: rgba(255,255,255,0.8);
+		cursor: pointer;
+	}
+	img {
+		width: 20px;
+		height: 20px;
+		float: left;
+		margin: 5px;
+		margin-right: 3%;
+		border-radius: 2px;
+		filter: brightness(0);
+	}
+	.sidebar_profile img {
+		filter: none;
+	}
+	.unread_count {
+		font-size: 14px;
+		position: absolute;
+		top: 0;
+		right: 9%;
+	}
+}

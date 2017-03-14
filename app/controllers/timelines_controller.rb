@@ -7,6 +7,7 @@ class TimelinesController < ApplicationController
     @timelines = Timeline.all.order(:id).reverse_order
     @timeline = Timeline.new
     @reply = Reply.new
+    @timelines.each {|tl| tl.mark_as_read! :for => current_user }
   end
 
   # GET /timelines/1
