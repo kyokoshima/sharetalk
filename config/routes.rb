@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     root :to => "devise/sessions#new"
     get 'login' => 'devise/sessions#new', as: :new_user_session
     post 'login' => 'devise/sessions#create', as: :user_session
-    get 'logout' => 'devise/sessions#destroy', as: :destroy_user_session
+    delete 'logout' => 'devise/sessions#destroy', as: :destroy_user_session
     get 'sign_up' => 'devise/registrations#new', as: :new_user_registration
     post 'sign_up' => 'devise/registrations#create', as: :user_registration
   end
