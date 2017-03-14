@@ -6,6 +6,7 @@ class TimelinesController < ApplicationController
   def index
     @timelines = Timeline.all.order(:id).reverse_order
     @timeline = Timeline.new
+    @reply = Reply.new
   end
 
   # GET /timelines/1

@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: :registrations }
   root :to => "home#index"
 
-
-  resources :profiles
-  resources :timelines
+ 
+  resources :timelines do
+    resources :replies
+  end
   resources :profiles
   resources :groups
   resources :events
