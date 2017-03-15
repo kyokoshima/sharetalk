@@ -21,12 +21,6 @@ ActiveRecord::Schema.define(version: 20170315015503) do
     t.integer  "expense_id"
   end
 
-  create_table "costs_expenses", id: false, force: :cascade do |t|
-    t.integer "expense_id", null: false
-    t.integer "cost_id",    null: false
-    t.index ["expense_id", "cost_id"], name: "index_costs_expenses_on_expense_id_and_cost_id"
-  end
-
   create_table "events", force: :cascade do |t|
     t.string   "title"
     t.datetime "date"
@@ -49,7 +43,13 @@ ActiveRecord::Schema.define(version: 20170315015503) do
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "expense_id"
+  end
+
+  create_table "expenses_users", id: false, force: :cascade do |t|
+    t.integer "expense_id", null: false
+    t.integer "user_id",    null: false
+    t.index ["expense_id"], name: "index_expenses_users_on_expense_id"
+    t.index ["user_id"], name: "index_expenses_users_on_user_id"
   end
 
   create_table "groups", force: :cascade do |t|
@@ -107,6 +107,26 @@ ActiveRecord::Schema.define(version: 20170315015503) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+  end
+
+  create_table "turn_detail_users", force: :cascade do |t|
+    t.integer  "turn_detail_id"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "turn_details", force: :cascade do |t|
+    t.string   "when"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "turn_id"
+  end
+
+  create_table "turns", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "user_groups", force: :cascade do |t|
