@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<div class="post">
+  <%= render 'form', timeline: @timeline %>
+</div>
+
+<table>
+  <tbody>
+    <% @timelines.each do |timeline| %>
+      <tr class="timeline">
+        <td><%= time_ago_in_words(timeline.created_at) + "前" %></td>
+        <td>
+          <% if timeline.user.profile.name.present? %>
+            <%= link_to timeline.user.profile.name, profile_path(timeline.user.profile.id) %></td>
+          <% else %>
+            <%= link_to timeline.user.profile.user_id, profile_path(timeline.user.profile.id) %>
+          <% end %>
+        <td>
+          <% if timeline.user.profile.image.present? %>
+            <%= image_tag timeline.user.profile.image.url(:medium) %></td>
+          <% else %>
+            <%= image_tag "no_img.png" %>
+          <% end %>
+        </td>
+        <td><%= timeline.content %></td>
+        <td><%= link_to '詳細表示', timeline %></td>
+        <% if current_user.id == timeline.user.id %>
+          <td><%= link_to '編集', edit_timeline_path(timeline) %></td>
+          <td><%= link_to 'Destroy', timeline, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Timeline', new_timeline_path %>

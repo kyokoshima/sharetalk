@@ -1,0 +1,18 @@
+<div class="nested-fields">
+  <div class="field">
+    <p><%= f.label :subject %></p>
+    <%= f.text_field :subject %>
+  </div>
+  <div class="field">
+    <p><%= f.label :cost %></p>
+    <%= f.text_field :cost %>
+  </div>
+  <div class="field">
+    <p><%= f.label :detail %></p>
+    <%= f.text_field :detail %>
+  </div>
+  <div class="links">
+  <%= link_to_remove_association "remove cost", f %>
+  </div>
+</div>
+

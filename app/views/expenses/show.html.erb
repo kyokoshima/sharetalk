@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<table class="table-show">
+<tr>
+  <th><strong>Title:</strong></th>
+  <td><%= @expense.title %></td>
+</tr>
+
+<% @expense.costs.each do |cost| %>
+<tr>
+  <th><strong>Subject:</strong></th>
+  <td><%= cost.subject %></td>
+
+  <th><strong>Cost:</strong></th>
+  <td>¥<%= cost.cost %></td>
+
+	<th><strong>Detail:</strong></th>
+  <td><%= cost.detail %></td>
+</tr>
+<% end %>
+
+<% @expense.users.each do |user| %>
+	<%= user.email %>
+<% end %>
+
+</table>
+
+<p>
+<strong>代金合計</strong> ¥
+<%= @expense.total_cost %>
+</p>
+
+<%= render 'costs/form', cost: @cost, expense: @expense %>
+
+<%= link_to 'Edit', edit_expense_path(@expense) %> |
+<%= link_to 'Back', expenses_path %>

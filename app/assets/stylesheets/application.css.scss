@@ -13,3 +13,29 @@
  *= require_tree .
  *= require_self
  */
+@import "timelines";
+$primary-color: #2fcdb4;
+$body-background: #2fcdb4;
+@import "materialize";
+@import 'material_icons';
+@import "header";
+
+#login{
+  background:url(sharetalk.jpg);
+  background-size: cover;
+  height:100vh;
+}
+
+#login-page{
+  width: 300px;
+}
+
+#signin{
+  background:url(sharetalk.jpg);
+  background-size: cover;
+  height:100vh;
+}
+
+#signin-page{
+  width: 300px;
+}
