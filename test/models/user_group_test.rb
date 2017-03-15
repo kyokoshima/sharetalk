@@ -1,17 +1,17 @@
 # == Schema Information
 #
-# Table name: expenses
+# Table name: user_groups
 #
 #  id         :integer          not null, primary key
-#  title      :string
+#  user_id    :integer
+#  group_id   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  expense_id :integer
 #
 
 require 'test_helper'
 
-class ExpenseTest < ActiveSupport::TestCase
+class UserGroupTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
