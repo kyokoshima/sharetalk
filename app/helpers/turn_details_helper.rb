@@ -1,0 +1,2 @@
+module TurnDetailsHelper
+end
