@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20170310085256) do
 
   create_table "costs", force: :cascade do |t|
@@ -44,13 +43,6 @@ ActiveRecord::Schema.define(version: 20170310085256) do
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "expenses_users", id: false, force: :cascade do |t|
-    t.integer "expense_id", null: false
-    t.integer "user_id",    null: false
-    t.index ["expense_id"], name: "index_expenses_users_on_expense_id"
-    t.index ["user_id"], name: "index_expenses_users_on_user_id"
   end
 
   create_table "groups", force: :cascade do |t|

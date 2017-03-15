@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: turn_details
+#
+#  id         :integer          not null, primary key
+#  when       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  turn_id    :string
+#
+
 class TurnDetail < ApplicationRecord
 	has_many :users, through: :turn_detail_users 
 	has_many :turn_detail_users, inverse_of: :turn_details
