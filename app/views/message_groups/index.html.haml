@@ -9,4 +9,5 @@
     
   - @message_groups.each do |mg|
     %li.collection-item.avatar
-      = profile_image user: mg.users.first, klz: 'circle'
+      = link_to message_group_url(mg) do
+        = profile_image user: mg.users.first, klz: 'circle'

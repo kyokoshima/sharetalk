@@ -2,6 +2,9 @@ class MessageGroupsController < ApplicationController
   def index
     @message_groups = MessageGroup.all
   end
+  def show
+    @message_group = MessageGroup.find(params[:id])
+  end
   def new
     @message_group = MessageGroup.new
   end
@@ -10,7 +13,7 @@ class MessageGroupsController < ApplicationController
     
     if @message_group.save
       flash[:notice] = 'MessageGroup was successfulle created.'
-      redirect_to message_group_messages_url @message_group
+      redirect_to message_group_message_url @message_group
     else
       render :new
     end

@@ -12,7 +12,12 @@ jQuery(document).on 'turbolinks:load', ->
 
 	  received: (data) ->
 	    # Called when there's incoming data on the websocket for this channel
-	    $('#chat-table').prepend("<tr><th>#{data.name}</th><td>#{data.content}</td></tr>")
+	    name = $('<span></span>').addClass('message-data-name').text data.name
+	    messageData = $('<div></div>').addClass("message-data")
+	    messageData.append(name)
+	    message = $('<div></div>').addClass('message my-message').text data.content
+	    li = $("<li></li>").addClass('li').append(messageData).append(message)
+	    $('#message-history > ul').prepend(li)
 
 	  send_message: (message, message_group_id) ->
 	  	@perform 'send_message', {message: message, message_group_id: message_group_id }
@@ -23,3 +28,4 @@ jQuery(document).on 'turbolinks:load', ->
 #		  App.message.send_message message_box.val(), messages.data('message-group-id')
 #      message_box.val('')
 #      return false
+		App.message.new_message $('#message-to-send').val()
