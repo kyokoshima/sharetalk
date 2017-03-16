@@ -4,6 +4,7 @@ class MessageGroupsController < ApplicationController
   end
   def show
     @message_group = MessageGroup.find(params[:id])
+    @users = User.all
   end
   def new
     @message_group = MessageGroup.new

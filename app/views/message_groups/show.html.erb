@@ -1,0 +1,118 @@
+= @message_group.title
+- @message_group.users.each do |u|
+  = u.email
+<p id="notice"><%= notice %></p>
+
+<div id="message" data-message-group-id="<%= @message_group.id %>">
+  <div class="container clearfix">
+      <div class="people-list" id="people-list">
+        <div class="search">
+          <input type="text" placeholder="search" />
+            <%= mi.search %>
+        </div>
+        <ul class="list">
+          <% @users.each do |u| %>
+            <li class="clearfix" data-user-id="<%= u.id %>">
+              <%= profile_image user:u %>
+              <div class="about">
+                <div class="name">
+                  <%= u.profile.name %>
+                </div>
+                <div class="status">
+                  <i class="material-icons online">fiber_manual_record</i> online
+                </div>
+              </div>
+            </li>
+          
+          <% end %>
+        </ul>
+      </div>
+      
+      <div id="message-in">
+        <div class="message-header clearfix">
+          <img src="../assets/images/no_img.png" alt="avatar" />
+          
+          <div id="message-about">
+            <div id="message-with">オナニーとのメッセーギ</div>
+            <div id="message-num">1902件のメッセージをやり取りしてるぜ</div>
+          </div>
+          <i class="material-icons fa-star">star_rate</i>
+        </div> <!-- end chat-header -->
+        
+        <div id="message-history">
+          <ul>
+            <% @message_group.messages.each do |m| %>
+              <li class="clearfix">
+                <div class="message-data other">
+                  <span class="message-data-time" >
+                    <%= m.created_at %>
+                  </span>
+                  <span class="message-data-name" >
+                    <%= m.user.profile.name %>
+                  </span> 
+                  <i class="material-icons me">fiber_manual_record</i>
+                  
+                </div>
+                <div class="message other-message float-right">
+                    <%= m.content %>
+                </div>
+              </li>
+            <% end %>
+            <li>
+              <div class="message-data">
+                <span class="message-data-name"><i class="material-icons online">fiber_manual_record</i> げきしこ</span>
+                <span class="message-data-time">10:12 AM, 今日</span>
+              </div>
+              <div class="message my-message">
+                おまんまん
+              </div>
+            </li>
+            
+            <li class="clearfix">
+              <div class="message-data align-right">
+                <span class="message-data-time" >10:14 AM, 今日</span> &nbsp; &nbsp;
+                <span class="message-data-name" >オナニー</span> <i class="material-icons me">fiber_manual_record</i>
+                
+              </div>
+              <div class="message other-message float-right">
+                シコシコシコしこ
+              </div>
+            </li>
+            
+            <li>
+              <div class="message-data">
+                <span class="message-data-name"><i class="material-icons online">fiber_manual_record</i> げきしこ</span>
+                <span class="message-data-time">10:20 AM, 今日</span>
+              </div>
+              <div class="message my-message">
+                眠い
+              </div>
+            </li>
+            
+            <li>
+              <div class="message-data">
+                <span class="message-data-name"><i class="material-icons online">fiber_manual_record</i> げきしこ</span>
+                <span class="message-data-time">10:31 AM, 今日</span>
+              </div>
+              <i class="material-icons online">fiber_manual_record</i>
+              <i class="material-icons online" style="color: #AED2A6">fiber_manual_record</i>
+              <i class="material-icons online" style="color:#DAE9DA">fiber_manual_record</i>
+            </li>
+            
+          </ul>
+          
+        </div> <!-- end chat-history -->
+        
+        <div class="message-chat clearfix">
+          <textarea name="message-to-send" id="message-to-send" placeholder ="Type your message" rows="3"></textarea>
+                  
+          <i class="material-icons">attach_file</i> &nbsp;&nbsp;&nbsp;
+          <i class="material-icons">add_a_photo</i>
+          
+          <button id="send-btn" class="waves-effect waves-light btn">送信</button>
+        </div> <!-- end chat-message -->
+        
+      </div> <!-- end chat -->
+      
+  </div> <!-- end container -->
+</div>
