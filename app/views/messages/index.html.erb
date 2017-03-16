@@ -8,6 +8,11 @@
 
 <ul id="message-list">
 </ul>
+
+<div id="messages" data-message-group-id="<%= @message_group.id %>">
+  <%= render @message_group.messages %>
+</div>
+
 <%= form_tag '#', id: 'message' do %>
   <%= text_field_tag 'body' %>
 <% end %>
