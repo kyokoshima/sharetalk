@@ -15,6 +15,7 @@
 #  last_sign_in_ip        :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  name                   :string
 #
 # Indexes
 #
@@ -25,7 +26,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  has_one :profile
+  has_one :profile, dependent: :destroy
   has_many :timelines
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -33,4 +34,16 @@ class User < ApplicationRecord
   has_many :expenses, through: :expenses_users
   has_many :message_groups, through: :message_group_users
   acts_as_reader
+
+  validates :name,
+    presence: true,                     # 必須にしたい！
+    uniqueness: true,                   # URLに使うしユニーク！
+    length: { maximum: 8 },            # あんまり長いのも……
+    format: { with: /\A[a-z0-9]+\z/i }  #英数字
+
+  after_create :set_profile
+
+  def set_profile
+    update(profile: Profile.new)
+  end
 end

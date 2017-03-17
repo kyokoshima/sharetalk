@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170310085256) do
+ActiveRecord::Schema.define(version: 20170315022511) do
 
   create_table "costs", force: :cascade do |t|
     t.string   "subject"
@@ -95,6 +95,15 @@ ActiveRecord::Schema.define(version: 20170310085256) do
     t.index ["reader_id", "reader_type", "readable_type", "readable_id"], name: "read_marks_reader_readable_index", unique: true
   end
 
+  create_table "replies", force: :cascade do |t|
+    t.text     "comment"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.integer  "timeline_id"
+    t.index ["timeline_id"], name: "index_replies_on_timeline_id"
+  end
+
   create_table "timelines", force: :cascade do |t|
     t.text     "content"
     t.datetime "created_at", null: false
@@ -115,6 +124,7 @@ ActiveRecord::Schema.define(version: 20170310085256) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
