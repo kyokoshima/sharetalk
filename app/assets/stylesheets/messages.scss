@@ -8,6 +8,8 @@ $green: #86BB71;
 $blue: #94C2ED;
 $orange: #E38968;
 $gray: #92959E;
+$white: #fff;
+$black: #000;
 
 #message {
 	*, *:before, *:after {
@@ -67,6 +69,16 @@ $gray: #92959E;
 	  
 	  img {
 	    float: left;
+	    position: absolute;
+	    width: auto;
+	    height: 55px;
+	    border-radius: 50%;
+	    border: 3px solid #green;
+		  top: 50%;
+		  left: 50%;
+		  -webkit-transform: translate(-50%, -50%);
+		  -ms-transform: translate(-50%, -50%);
+		  transform: translate(-50%, -50%);
 	  }
 	  
 	  .about {
@@ -96,10 +108,25 @@ $gray: #92959E;
 	  .message-header {
 	    padding: 20px;
 	    border-bottom: 2px solid white;
+	    padding-left: 75px;
 	    
-	    img {
-	      float: left;
-	    }
+	    .avatar-img {
+	    	position: relative;
+
+		    img {
+		      float: left;
+			    position: absolute;
+			    border-radius: 75px;
+			    width: 55px;
+			  	height: 55px;
+			  	border: 3px solid #86BB71;
+				  top: 25px;
+				  left: -25px;
+				  -webkit-transform: translate(-50%, -50%);
+				  -ms-transform: translate(-50%, -50%);
+				  transform: translate(-50%, -50%);
+		    }
+		  }
 	    
 	    #message-about {
 	      float: left;
@@ -164,11 +191,11 @@ $gray: #92959E;
 	      }
 	    }
 	    
-	    .my-message {
+	    .other-message {
 	      background: $green;
 	    }
 	    
-	    .other-message {
+	    .my-message {
 	      background: $blue;
 	      
 	      &:after {
@@ -190,7 +217,7 @@ $gray: #92959E;
 	      margin-bottom: 10px;
 	      border-radius: 5px;
 	      resize: none;
-	      
+	      border: 1px solid #fff;
 	    }
 	    
 	    .fa-file-o, .fa-file-image-o {
@@ -218,7 +245,7 @@ $gray: #92959E;
 	}
 
 	.online, .offline, .me {
-	    margin-right: 3px;
+	    margin-left: 3px;
 	    font-size: 10px;
 	  }
 	  

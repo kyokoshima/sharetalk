@@ -8,11 +8,12 @@ $ ->
 
 	  received: (data) ->
 	    # Called when there's incoming data on the websocket for this channel
+	    icon = $('<i></i>').addClass('material-icons me').text 'fiber_manual_record'
 	    name = $('<span></span>').addClass('message-data-name').text data.name
-	    messageData = $('<div></div>').addClass("message-data")
-	    messageData.append(name)
-	    message = $('<div></div>').addClass('message my-message').text data.content
-	    li = $("<li></li>").addClass('li').append(messageData).append(message)
+	    messageData = $('<div></div>').addClass("message-data align-right")
+	    messageData.append(name).append(icon)
+	    message = $('<div></div>').addClass('my-message message float-right').text data.content
+	    li = $("<li></li>").addClass('clearfix').append(messageData).append(message)
 	    $('#message-history > ul').prepend(li)
 
 	  new_message: (message) ->
