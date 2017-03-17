@@ -15,6 +15,7 @@ class GroupsController < ApplicationController
   # GET /groups/new
   def new
     @group = Group.new
+    @users = User.all.map { |u| UserGroup.new({user_id: u.id})}
   end
 
   # GET /groups/1/edit
