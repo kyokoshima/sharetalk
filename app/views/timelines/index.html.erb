@@ -13,7 +13,7 @@
           <% if timeline.user.profile.name.present? %>
             <%= link_to timeline.user.profile.name, profile_path(timeline.user.profile.id) %></td>
           <% else %>
-            <%= link_to timeline.user.profile.user_id, profile_path(timeline.user.profile.id) %>
+            <%= link_to timeline.user.name, profile_path(timeline.user.profile.id) %>
           <% end %>
         <td>
             <%= image_tag timeline.user.profile.image.url(:medium) %>
