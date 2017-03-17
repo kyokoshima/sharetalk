@@ -12,7 +12,6 @@ class MessageGroupsController < ApplicationController
   end
   def create 
     @message_group = MessageGroup.new message_group_params
-    binding.pry
     if @message_group.save
       flash[:notice] = 'MessageGroup was successfulle created.'
       redirect_to message_group_url @message_group
