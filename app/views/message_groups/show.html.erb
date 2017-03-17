@@ -3,7 +3,7 @@
   = u.email
 <p id="notice"><%= notice %></p>
 
-<div id="message" data-message-group-id="<%= @message_group.id %>">
+<div id="message">
   <div class="container clearfix">
       <div class="people-list" id="people-list">
         <div class="search">
@@ -33,30 +33,16 @@
           <img src="../assets/images/no_img.png" alt="avatar" />
           
           <div id="message-about">
-            <div id="message-with">オナニーとのメッセーギ</div>
-            <div id="message-num">1902件のメッセージをやり取りしてるぜ</div>
+            <div id="message-with">Messages with <%= @message_group.users.map { |u| u.profile.name }.join(',') %></div>
+            <div id="message-num"><%= @message_group.messages.count %>件<div>
           </div>
           <i class="material-icons fa-star">star_rate</i>
         </div> <!-- end chat-header -->
         
-        <div id="message-history">
+        <div id="messages" data-message-group-id="<%= @message_group.id %>">
           <ul>
             <% @message_group.messages.each do |m| %>
-              <li class="clearfix">
-                <div class="message-data other">
-                  <span class="message-data-time" >
-                    <%= m.created_at %>
-                  </span>
-                  <span class="message-data-name" >
-                    <%= m.user.profile.name %>
-                  </span> 
-                  <i class="material-icons me">fiber_manual_record</i>
-                  
-                </div>
-                <div class="message other-message float-right">
-                    <%= m.content %>
-                </div>
-              </li>
+              <%= render 'messages/message', message: m %>
             <% end %>
             <li>
               <div class="message-data">
@@ -75,10 +61,10 @@
         
         <div class="message-chat clearfix">
           <%= form_for [ @message_group, @message], url: '#' do |f| %>
-            <%= f.text_area :content, id: 'message-to-send', placeholder: 'Type your message', rows: 3 %>
+            <%= f.text_area :content,  placeholder: 'Type your message', rows: 3 %>
             <%= mi.attach_file %>
             <%= mi.add_a_photo %>
-            <%= f.button "送信", id: 'send-btn', class: ['waves-effect','waves-light','btn'] %>
+            <%= f.button "送信", class: ['waves-effect','waves-light','btn'] %>
         <% end %>
         </div> <!-- end chat-message -->
         

@@ -1,0 +1,9 @@
+%li.clearfix
+  .message-data.me
+    %span.message-data-time
+      = message.created_at
+    %span.message-data-name
+      = message.user.profile.name
+    = mi.fiber_manual_record
+  .message.my-message
+    = message.content
