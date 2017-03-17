@@ -1,0 +1,36 @@
+<%= form_for(turn) do |f| %>
+  <% if turn.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(turn.errors.count, "error") %> prohibited this turn from being saved:</h2>
+
+      <ul>
+      <% turn.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <%= f.fields_for :turn_details do |detail| %>
+    <div class="field">
+      <%= detail.label :when %>
+      <%= detail.text_field :when %>
+    </div>
+    <%= detail.fields_for :turn_detail_users, User.all.map { |u| TurnDetailUser.new({user_id: u.id})} do |tdu| %>
+      <div>
+        <%= tdu.check_box :user_id, {}, tdu.object.user.id, false %> <!-- tdu.object = turn_detail_users -->
+        <%= tdu.label tdu.object.user.profile.name %>
+        <%= tdu.hidden_field :id %>
+      </div>
+    <% end %>
+  <% end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

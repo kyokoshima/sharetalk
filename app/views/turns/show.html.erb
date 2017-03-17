@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<div class="turn_name">
+	<strong>Name:</strong>
+  <%= @turn.name %>
+ </div>
+<div class="turn_when">
+	<strong>When:</strong>
+	<% @turn.turn_details.each do |detail| %>
+  	<%= detail.when %>
+</div>
+	<div class="turn_user">
+		<strong>Users:</strong>
+		<% detail.users.each do |tdu| %>
+	  	<%= tdu.profile.name %>
+	</div>
+	<% end %>
+<% end %>
+
+<%= link_to 'Edit', edit_turn_path(@turn) %> |
+<%= link_to 'Back', turns_path %>
