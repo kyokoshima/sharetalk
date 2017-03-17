@@ -19,11 +19,7 @@
         <td><%= profile.name %></td>
         <td><%= profile.user_id %></td>
         <td class="profile-image">
-        <% if profile.image.present? %>
           <%= image_tag profile.image.url(:medium) %></td>
-        <% else %>
-          <%= image_tag "no_img.png" %>f
-        <% end %>
         <td><%= profile.hobby %></td>
         <td><%= profile.birthday %></td>
         <td><%= link_to 'Show', profile %></td>

@@ -15,12 +15,8 @@
           <% else %>
             <%= link_to timeline.user¥.profile.user_id, profile_path(timeline.user.profile.id) %>
           <% end %>
-        <td class="timeline-img">
-          <% if timeline.user.profile.image.present? %>
-            <%= image_tag timeline.user.profile.image.url(:medium) %></td>
-          <% else %>
-            <%= image_tag "no_img.png" %>
-          <% end %>
+        <td>
+            <%= image_tag timeline.user.profile.image.url(:medium) %>
         </td>
         <td><%= timeline.content %></td>
         <td><%= link_to '詳細表示', timeline %></td>
