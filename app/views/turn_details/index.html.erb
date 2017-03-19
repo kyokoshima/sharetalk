@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Turn Details</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>When</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @turn_details.each do |turn_detail| %>
+      <tr>
+        <td><%= turn_detail.when %></td>
+        <td><%= turn_detail.user_id %></td>
+        <td><%= link_to 'Show', turn_detail %></td>
+        <td><%= link_to 'Edit', edit_turn_detail_path(turn_detail) %></td>
+        <td><%= link_to 'Destroy', turn_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Turn Detail', new_turn_detail_path %>

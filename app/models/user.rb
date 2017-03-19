@@ -8,13 +8,14 @@
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
-#  sign_in_count          :integer          default("0"), not null
+#  sign_in_count          :integer          default(0), not null
 #  current_sign_in_at     :datetime
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string
 #  last_sign_in_ip        :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  name                   :string
 #
 # Indexes
 #
@@ -25,15 +26,28 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  has_one :profile
+  has_one :profile, dependent: :destroy
   has_many :timelines
+  has_many :replies
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  has_many :turn_detail_users, inverse_of: :users
   has_many :expenses_users, inverse_of: :user
   has_many :expenses, through: :expenses_users
   has_many :message_groups, through: :message_group_users
   has_many :messages
   
   acts_as_reader
- 
+
+  validates :name,
+    presence: true,                     # 必須にしたい！
+    uniqueness: true,                   # URLに使うしユニーク！
+    length: { maximum: 8 },            # あんまり長いのも……
+    format: { with: /\A[a-z0-9]+\z/i }  #英数字
+
+  after_create :set_profile
+
+  def set_profile
+    update(profile: Profile.new)
+  end
 end
