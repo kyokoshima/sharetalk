@@ -29,7 +29,7 @@
       
       <div id="message-in">
         <div class="message-header clearfix">
-          <img src="../assets/images/no_img.png" alt="avatar" />
+          <%= image_tag @message_group.icon, class: 'avator' %>
           
           <div id="message-about">
             <div id="message-with">Messages with <%= @message_group.users.map { |u| u.profile.name }.join(',') %></div>
@@ -43,16 +43,6 @@
             <% @message_group.messages.each do |m| %>
               <%= render 'messages/message', message: m %>
             <% end %>
-            <li>
-              <div class="message-data">
-                <span class="message-data-name"><i class="material-icons online">fiber_manual_record</i> げきしこ</span>
-                <span class="message-data-time">10:12 AM, 今日</span>
-              </div>
-              <div class="message my-message">
-                おまんまん
-              </div>
-            </li>
-            
             
           </ul>
           
