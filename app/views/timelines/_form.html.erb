@@ -5,16 +5,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <P>
-    <%= f.label :タイムライン %>
-    </P>
-    <%= f.text_area :content, placeholder: "今日の予定は？" %>
-  </div>
+  <% if current_user.profile.image.present? %>
+    <%= image_tag current_user.profile.image.url(:medium) %>
+  <% else %>
+    <%= image_tag "no_img.png" %>
+  <% end %>
+
+  <%= f.text_area :content, placeholder: "今日の予定は？" %>
 
   <div class="actions">
     <%= flash[:notice] %>
-    <%= f.submit(['投稿']) %>
+    <%= f.submit(['投稿する']) %>
   </div>
 <% end %>
 

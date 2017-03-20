@@ -109,6 +109,26 @@ ActiveRecord::Schema.define(version: 20170315015503) do
     t.integer  "user_id"
   end
 
+  create_table "turn_detail_users", force: :cascade do |t|
+    t.integer  "turn_detail_id"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "turn_details", force: :cascade do |t|
+    t.string   "when"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "turn_id"
+  end
+
+  create_table "turns", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "user_groups", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "group_id"

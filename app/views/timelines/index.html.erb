@@ -4,6 +4,38 @@
   <%= render 'form', timeline: @timeline %>
 </div>
 
+<% @timelines.each do |timeline| %>
+  <div class="timelines">
+
+    <div class="timeline_title">
+      <% if timeline.user.profile.image.present? %>
+        <%= image_tag timeline.user.profile.image.url(:medium) %>
+      <% else %>
+        <%= image_tag "no_img.png" %>
+      <% end %>
+      <div class="name">
+        <% if timeline.user.profile.name.present? %>
+          <%= link_to timeline.user.profile.name, profile_path(timeline.user.profile.id) %>
+        <% else %>
+          <%= link_to timeline.user.profile.user_id, profile_path(timeline.user.profile.id) %>
+        <% end %>
+        <div class="date">
+          <%= time_ago_in_words(timeline.created_at) + "前" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline_content">
+      <%= timeline.content %>
+    </div>
+
+  </div>
+<% end %>
+
+<div class="timelines">
+<div class="timeline_title">a</div>
+<div class="timeline_content">b</div>
+</div>
 <table>
   <tbody>
     <% @timelines.each do |timeline| %>
@@ -17,7 +49,7 @@
           <% end %>
         <td>
           <% if timeline.user.profile.image.present? %>
-            <%= image_tag timeline.user.profile.image.url(:medium) %></td>
+            <%= image_tag timeline.user.profile.image.url(:medium) %>
           <% else %>
             <%= image_tag "no_img.png" %>
           <% end %>
