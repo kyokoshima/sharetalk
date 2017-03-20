@@ -16,6 +16,7 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  name                   :string
+#  on                     :boolean          default(FALSE), not null
 #
 # Indexes
 #
@@ -49,5 +50,17 @@ class User < ApplicationRecord
 
   def set_profile
     update(profile: Profile.new)
+  end
+
+  def appear on: true
+    update(on: on)
+  end
+
+  def away
+    update(on: false)
+  end
+
+  def disappear
+    away
   end
 end

@@ -16,7 +16,9 @@
                   <%= u.profile.name %>
                 </div>
                 <div class="status">
-                  <i class="material-icons online">fiber_manual_record</i> online
+                  <% status = u.on ? 'online' : 'offline' %>
+                  <%= mi.fiber_manual_record.css_class(status) %>
+                  <%= status %>
                 </div>
               </div>
             </li>
