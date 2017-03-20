@@ -15,7 +15,8 @@ class GroupsController < ApplicationController
   # GET /groups/new
   def new
     @group = Group.new
-    @users = User.all.map { |u| UserGroup.new({user_id: u.id})}
+    @group.user_groups.build
+    @users = User.all.map { |u| UserGroup.new({user_id: u.id})} #user_groupの空のインスタンスを作る
   end
 
   # GET /groups/1/edit
@@ -70,6 +71,6 @@ class GroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
-      params.require(:group).permit(:name, :detail)
+      params.require(:group).permit(:name, :detail, :user_id)
     end
 end
