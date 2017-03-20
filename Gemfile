@@ -40,6 +40,7 @@ gem 'cocoon'
 # gem 'capistrano-rails', group: :development
 
 gem 'devise'
+gem 'devise-i18n'
 gem 'unread'
 
 group :development, :test do

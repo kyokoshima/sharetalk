@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root :to => "home#index"
+  root :to => "timelines#index"
   resources :timelines do
     resources :replies
   end
@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   resources :expenses do
   	resources :costs
   end
-
 
   devise_for :users, skip: [:sessions, :registrations] #deviseのデフォルトのpathを削除
   devise_scope :user do
