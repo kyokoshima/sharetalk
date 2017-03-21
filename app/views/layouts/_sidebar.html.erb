@@ -1,10 +1,10 @@
 <ul id="sidebar" class="sidenavi fixed">
 	<li class="sidebar_profile">
-    <% if current_user.profile.present? %>
-    	<%= profile_image %>
+    <%= profile_image %>
+    <% if current_user.profile.name %>
 			<%= link_to current_user.profile.name, profile_path(current_user.profile) %>
     <% else %>
-      <span style="font-size: 20pt; color: red;">プロフィールが無い！！</span>
+      <%= link_to current_user.name, profile_path(current_user.profile) %>
     <% end %>
 	</li>
 	<li>

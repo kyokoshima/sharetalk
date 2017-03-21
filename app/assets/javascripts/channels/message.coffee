@@ -7,6 +7,7 @@ jQuery(document).on 'turbolinks:load', ->
       message_group_id: messages.data('message-group-id')
     },
 	  connected: ->
+      console.log 'connected messages'
 	    # Called when the subscription is ready for use on the server
 
 	  disconnected: ->

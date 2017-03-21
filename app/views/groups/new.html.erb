@@ -1,4 +1,4 @@
-<h1>New Group</h1>
+<h2>グループを作る</h2>
 
 <%= form_for @group do |f| %>
 	<div class="row">
@@ -11,13 +11,13 @@
 			<%= f.label :detail %>
 		</div>
 	</div>
-	<h3>users</h3>
 	<div id="users"></div>
-	<%= f.submit %>
+	<a href="#candidate-modal" class="modal-trigger waves-effect waves-light btn">
+		メンバーを選択
+	</a>
+	<div><%= f.submit %></div>
 <% end %>
-<a href="#candidate-modal" class="modal-trigger waves-effect waves-light btn">
-	select user
-</a>
+
   
 <div id="candidate-modal" class="modal">
 	 <div class="modal-content">
@@ -25,7 +25,7 @@
     <div class="section"></div>
     <ul class="collection">
     	<% User.all.each do |u| %>
-        <li class="collection-item avatar" data-user-id="#{u.id}">
+        <li class="collection-item avatar" data-user-id="<%= u.id %>">
           <%= profile_image klz: 'circle' %>
           <p>
           	<%= u.profile.name %>
@@ -37,10 +37,10 @@
 	 </div>
     
   <div class="modal-footer">
-  	<a href="" class="modal-action modal-close waves-effect waves-green btn-flat cancel">Cancel</a>
-    <a href="" class="waves-effect waves-green btn-flat ok">OK</a>
+  	<a class="modal-action modal-close waves-effect waves-green btn-flat cancel">Cancel</a>
+    <a class="waves-effect waves-green btn-flat ok" data-attribute-name="group[user_group_attributes][][user_id]">OK</a>
   </div>
     
 </div>
  
-<%= link_to 'Back', groups_path %>
+<%= link_to '戻る', groups_path %>
