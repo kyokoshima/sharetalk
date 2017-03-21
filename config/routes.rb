@@ -4,9 +4,11 @@ Rails.application.routes.draw do
     resources :turn_details
   end
 
-  devise_for :users, controllers: { registrations: :registrations }
 
   resources :timelines do
+    member do
+      get :liking_users
+    end
     resources :replies
   end
   resources :profiles
@@ -21,11 +23,7 @@ Rails.application.routes.draw do
   end
 
   resources :messages
-
   root :to => "home#index"
-
-  resources :profiles
-  resources :timelines
   resources :groups
   resources :events
 
@@ -36,5 +34,9 @@ Rails.application.routes.draw do
   resources :message_groups do
     resources :messages
   end
+
+# likes関連
+  post '/like/:timeline_id' => 'likes#like', as: 'like'
+  delete '/unlike/:timeline_id' => 'likes#unlike', as: 'unlike'
 
 end

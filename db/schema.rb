@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170315022511) do
+ActiveRecord::Schema.define(version: 20170317072547) do
 
   create_table "costs", force: :cascade do |t|
     t.string   "subject"
@@ -50,6 +50,13 @@ ActiveRecord::Schema.define(version: 20170315022511) do
     t.text     "detail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "timeline_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "message_group_users", id: false, force: :cascade do |t|
