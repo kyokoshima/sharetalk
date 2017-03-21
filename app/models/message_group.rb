@@ -13,4 +13,8 @@ class MessageGroup < ApplicationRecord
   has_many :message_group_users, inverse_of: :message_group
   accepts_nested_attributes_for :message_group_users, allow_destroy: :true
   has_many :messages
+
+  def icon
+    users.first.profile.image
+  end
 end
