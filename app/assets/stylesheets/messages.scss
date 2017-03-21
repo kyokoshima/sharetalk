@@ -69,16 +69,6 @@ $black: #000;
 	  
 	  img {
 	    float: left;
-	    position: absolute;
-	    width: auto;
-	    height: 55px;
-	    border-radius: 50%;
-	    border: 3px solid #green;
-		  top: 50%;
-		  left: 50%;
-		  -webkit-transform: translate(-50%, -50%);
-		  -ms-transform: translate(-50%, -50%);
-		  transform: translate(-50%, -50%);
 	  }
 	  
 	  .about {
@@ -108,23 +98,11 @@ $black: #000;
 	  .message-header {
 	    padding: 20px;
 	    border-bottom: 2px solid white;
-	    padding-left: 75px;
-	    
-	    .avatar-img {
-	    	position: relative;
 
+	    .avatar-img {
+	    
 		    img {
 		      float: left;
-			    position: absolute;
-			    border-radius: 75px;
-			    width: 55px;
-			  	height: 55px;
-			  	border: 3px solid #86BB71;
-				  top: 25px;
-				  left: -25px;
-				  -webkit-transform: translate(-50%, -50%);
-				  -ms-transform: translate(-50%, -50%);
-				  transform: translate(-50%, -50%);
 		    }
 		  }
 	    

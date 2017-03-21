@@ -16,8 +16,8 @@ $('#candidate-modal').on 'click', '.collection-item' , (e) ->
 .on 'click', '.ok', ->
   console.log @
   chips = $(@).parents().find('.section > .chip')
-  new_id = new Date().getTime()
   chips.each (i, e) ->
+    new_id = new Date().getTime()
     hidden = $('<input type="hidden">')
       .attr {'name': "message_group[message_group_users_attributes][#{new_id}][user_id]"}
       .val $(e).data('user-id')

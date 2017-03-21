@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170310085256) do
+ActiveRecord::Schema.define(version: 20170316230021) do
 
   create_table "costs", force: :cascade do |t|
     t.string   "subject"
@@ -70,6 +70,8 @@ ActiveRecord::Schema.define(version: 20170310085256) do
     t.datetime "updated_at",       null: false
     t.string   "content"
     t.integer  "message_group_id"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|

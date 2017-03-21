@@ -5,6 +5,7 @@ class MessagesController < ApplicationController
   # GET /messages.json
   def index
     @messages = Message.all
+    @message_group = MessageGroup.find params[:message_group_id]
   end
 
   # GET /messages/1
