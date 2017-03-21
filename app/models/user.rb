@@ -29,6 +29,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_one :profile, dependent: :destroy
   has_many :timelines
+  has_many :user_groups, inverse_of: :user
+  has_many :groups, through: :user_groups
   has_many :replies
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

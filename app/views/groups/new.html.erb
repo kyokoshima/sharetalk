@@ -1,5 +1,46 @@
-<h1>New Group</h1>
+<h2>グループを作る</h2>
 
-<%= render 'form', group: @group %>
+<%= form_for @group do |f| %>
+	<div class="row">
+		<div class="input-field col s12">
+			<%= f.text_field :name %>
+			<%= f.label :name %>
+		</div>
+		<div class="input-field col s12">
+			<%= f.text_area :detail %>
+			<%= f.label :detail %>
+		</div>
+	</div>
+	<div id="users"></div>
+	<a href="#candidate-modal" class="modal-trigger waves-effect waves-light btn">
+		メンバーを選択
+	</a>
+	<div><%= f.submit %></div>
+<% end %>
 
-<%= link_to 'Back', groups_path %>
+  
+<div id="candidate-modal" class="modal">
+	 <div class="modal-content">
+	 	<h4>select user</h4>
+    <div class="section"></div>
+    <ul class="collection">
+    	<% User.all.each do |u| %>
+        <li class="collection-item avatar" data-user-id="<%= u.id %>">
+          <%= profile_image klz: 'circle' %>
+          <p>
+          	<%= u.profile.name %>
+          </p> 
+        </li>
+      <% end %>
+    </ul>
+      
+	 </div>
+    
+  <div class="modal-footer">
+  	<a class="modal-action modal-close waves-effect waves-green btn-flat cancel">Cancel</a>
+    <a class="waves-effect waves-green btn-flat ok" data-attribute-name="group[user_group_attributes][][user_id]">OK</a>
+  </div>
+    
+</div>
+ 
+<%= link_to '戻る', groups_path %>

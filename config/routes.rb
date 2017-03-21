@@ -14,6 +14,11 @@ Rails.application.routes.draw do
   	resources :costs
   end
 
+
+  resources :expenses do
+  	resources :costs
+  end
+
   devise_for :users, skip: [:sessions, :registrations] #deviseのデフォルトのpathを削除
   devise_scope :user do
     root :to => "devise/sessions#new"

@@ -18,5 +18,5 @@
               %p #{u.profile.name}
       .modal-footer
         %a.modal-action.modal-close.waves-effect.waves-green.btn-flat.cancel Cancel
-        %a.waves-effect.waves-green.btn-flat.ok OK
+        %a.waves-effect.waves-green.btn-flat.ok(data-attribute-name="group[group_users_attributes][][user_id]") OK
   = f.submit '登録', class: ['btn-flat', 'waves-green', 'waves-effect']
