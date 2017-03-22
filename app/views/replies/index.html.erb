@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Replies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Comment</th>
+      <th>name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @replies.each do |reply| %>
+      <tr>
+        <td><%= reply.comment %></td>
+        <td><%= reply.user.profile.name %></td>
+        <td><%= link_to 'Show', timeline_reply_path(@timeline,reply) %></td>
+        <td><%= link_to 'Edit', edit_timeline_reply_path(@timeline,reply) %></td>
+        <td><%= link_to 'Destroy', timeline_reply_path(@timeline, reply), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Reply', new_timeline_reply_path %>
