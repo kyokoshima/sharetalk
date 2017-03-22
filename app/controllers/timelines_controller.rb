@@ -1,5 +1,5 @@
 class TimelinesController < ApplicationController
-  before_action :set_timeline, only: [:show, :edit, :update, :destroy]
+  before_action :set_timeline, only: [:show, :edit, :update, :destroy, :liking_users]
 
   # GET /timelines
   # GET /timelines.json
@@ -8,6 +8,10 @@ class TimelinesController < ApplicationController
     @timeline = Timeline.new
     @reply = Reply.new
     @timelines.each {|tl| tl.mark_as_read! :for => current_user }
+  end
+
+  def liking_users
+    @users = @timeline.liking_users
   end
 
   # GET /timelines/1
@@ -76,6 +80,6 @@ class TimelinesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def timeline_params
-      params.require(:timeline).permit(:content, :user_id)
+      params.require(:timeline).permit(:content, :user_id, :liking_users)
     end
 end
