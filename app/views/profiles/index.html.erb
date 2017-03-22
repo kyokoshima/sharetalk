@@ -32,6 +32,7 @@
           <div class="buttom2">
             <span style="font-size: 21px;"><%= link_to 'Show', profile %></span>
           </div>
+
         <% if current_user.id == profile.user.id %>
           <div class="buttom2">
             <span style="font-size: 21px; color:white;"><%= link_to 'Edit', edit_profile_path(profile) %></span>

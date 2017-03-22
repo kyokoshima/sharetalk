@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170310085256) do
+ActiveRecord::Schema.define(version: 20170321145901) do
 
   create_table "costs", force: :cascade do |t|
     t.string   "subject"
@@ -52,6 +52,13 @@ ActiveRecord::Schema.define(version: 20170310085256) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "timeline_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "message_group_users", id: false, force: :cascade do |t|
     t.integer "message_group_id"
     t.integer "user_id"
@@ -70,6 +77,8 @@ ActiveRecord::Schema.define(version: 20170310085256) do
     t.datetime "updated_at",       null: false
     t.string   "content"
     t.integer  "message_group_id"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -84,6 +93,7 @@ ActiveRecord::Schema.define(version: 20170310085256) do
     t.datetime "image_updated_at"
     t.string   "name"
     t.integer  "user_id"
+    t.text     "introduce"
   end
 
   create_table "read_marks", force: :cascade do |t|
@@ -93,6 +103,15 @@ ActiveRecord::Schema.define(version: 20170310085256) do
     t.integer  "reader_id"
     t.datetime "timestamp"
     t.index ["reader_id", "reader_type", "readable_type", "readable_id"], name: "read_marks_reader_readable_index", unique: true
+  end
+
+  create_table "replies", force: :cascade do |t|
+    t.text     "comment"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.integer  "timeline_id"
+    t.index ["timeline_id"], name: "index_replies_on_timeline_id"
   end
 
   create_table "timelines", force: :cascade do |t|
@@ -122,19 +141,28 @@ ActiveRecord::Schema.define(version: 20170310085256) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "user_groups", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.string   "name"
+    t.boolean  "on",                     default: false, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

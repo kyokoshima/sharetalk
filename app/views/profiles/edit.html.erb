@@ -4,6 +4,7 @@
   <strong>Image:</strong>
   <%= image_tag @profile.image.url(:medium) %>
 </div>
+
 <%= render 'form', profile: @profile %>
 
 <%= link_to 'Show', @profile %> |
