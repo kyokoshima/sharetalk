@@ -10,15 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< .merge_file_6uqV5t
+
 
 
 ActiveRecord::Schema.define(version: 20170321145901) do
 
 
-=======
-ActiveRecord::Schema.define(version: 20170321145901) do
->>>>>>> .merge_file_SGCxEv
+
+
 
   create_table "costs", force: :cascade do |t|
     t.string   "subject"
@@ -92,23 +91,18 @@ ActiveRecord::Schema.define(version: 20170321145901) do
     t.datetime "updated_at",       null: false
     t.string   "content"
     t.integer  "message_group_id"
-<<<<<<< .merge_file_6uqV5t
+
 
 
     t.integer  "user_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
 
 
-=======
->>>>>>> .merge_file_SGCxEv
+
     t.integer  "user_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
-<<<<<<< .merge_file_6uqV5t
-
-=======
->>>>>>> .merge_file_SGCxEv
   create_table "profiles", force: :cascade do |t|
     t.string   "image"
     t.string   "hobby"
@@ -140,7 +134,7 @@ ActiveRecord::Schema.define(version: 20170321145901) do
     t.integer  "user_id"
     t.integer  "timeline_id"
     t.index ["timeline_id"], name: "index_replies_on_timeline_id"
-<<<<<<< .merge_file_6uqV5t
+
 
   end
 
@@ -152,8 +146,7 @@ ActiveRecord::Schema.define(version: 20170321145901) do
     t.datetime "timestamp"
     t.index ["reader_id", "reader_type", "readable_type", "readable_id"], name: "read_marks_reader_readable_index", unique: true
 
-=======
->>>>>>> .merge_file_SGCxEv
+
   end
 
   create_table "timelines", force: :cascade do |t|
