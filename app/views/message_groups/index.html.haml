@@ -1,0 +1,13 @@
+%ul.collection.with-header
+  %li.collection-item
+    .row.valign-wrapper
+      .col.s6
+        %h4 messages
+      .col.s6.right-align
+        = link_to new_message_group_path do
+          = mi.css_class("md-48").message
+    
+  - @message_groups.each do |mg|
+    %li.collection-item.avatar
+      = link_to message_group_url(mg) do
+        = image_tag mg.icon, class: 'circle'

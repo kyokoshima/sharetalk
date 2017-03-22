@@ -18,16 +18,25 @@
 
   </div>
 
-  <%= f.fields_for :costs do |cost| %>
-    <%= render 'cost_fields', f: cost %>
-  <% end %>
-
-  <div class="links">
-    <%= link_to_add_association 'add cost', f, :costs %>
+  <div id="costs">
+    <%= f.fields_for :costs do |cost| %>
+      <%= render 'cost_fields', f: cost %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'add cost', f, :costs %>
+    </div>
   </div>
 
+  <%= render 'new_user_form', f: f, users: @users %>
 
-
+  <div class="nested-fields">
+    <% User.all do |user| %>
+      <div class="field">
+        <%= label_tag user.id %>
+        <%= check_box_tag user.id, {}, user.id, false %>
+      </div>
+    <% end %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>

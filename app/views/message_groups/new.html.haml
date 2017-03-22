@@ -1,0 +1,22 @@
+= form_for @message_group do |f|
+  .row
+    .input-field.col.s12
+      = f.text_field :title
+      = f.label :title
+  %h3 users
+  #users
+    %a.modal-trigger.waves-effect.waves-light.btn(href="#candidate-modal")
+      select user
+    #candidate-modal.modal
+      .modal-content
+        %h4 select user
+        .section
+        %ul.collection
+          - User.all.each do |u|
+            %li.collection-item.avatar(data-user-id="#{u.id}")
+              = profile_image klz: 'circle'
+              %p #{u.profile.name}
+      .modal-footer
+        %a.modal-action.modal-close.waves-effect.waves-green.btn-flat.cancel Cancel
+        %a.waves-effect.waves-green.btn-flat.ok(data-attribute-name="group[group_users_attributes][][user_id]") OK
+  = f.submit '登録', class: ['btn-flat', 'waves-green', 'waves-effect']

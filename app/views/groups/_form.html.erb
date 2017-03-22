@@ -21,6 +21,14 @@
     <%= f.text_area :detail %>
   </div>
 
+  <%= f.fields_for :user_groups, @users do |ug| %>
+    <div>
+      <%= ug.check_box :user_id, {}, ug.object.user_id, false %>
+      <%= ug.label ug.object.user.profile.name %>
+      <%= ug.hidden_field :id %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

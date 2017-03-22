@@ -1,0 +1,44 @@
+<ul id="sidebar" class="sidenavi fixed">
+	<li class="sidebar_profile">
+    <%= profile_image %>
+    <% if current_user.profile.name %>
+			<%= link_to current_user.profile.name, profile_path(current_user.profile) %>
+    <% else %>
+      <%= link_to current_user.name, profile_path(current_user.profile) %>
+    <% end %>
+	</li>
+	<li>
+		<%= link_to timelines_path do %>
+			<i class="material-icons">home</i> HOME
+			<div class="unread_count">
+				<%= Timeline.unread_by(current_user).count if Timeline.unread_by(current_user).count > 0 %>
+			</div>
+		<% end %>
+	</li>
+	<li>
+		<%=  link_to groups_path do %>
+			<i class="material-icons">group</i> グループ
+		<% end %>
+	</li>
+	<ul class="group-list">
+		<% current_user.groups.each do |group| %>
+			<li><%= link_to group.name, group_path %></li>
+		<% end %>
+	</ul>
+	<li>
+		<%=  link_to events_path do %>
+			<i class="material-icons">event_note</i> イベント
+		<% end %>
+	</li>
+	<li>
+		<%=  link_to expenses_path do %>
+			<i class="material-icons">attach_money</i> 経費
+		<% end %>
+	</li>
+  <li>
+    <%= link_to  message_groups_path do %>
+      <i class="material-icons">chat</i> メッセージ
+    <% end %>
+  </li>
+</ul>
+
