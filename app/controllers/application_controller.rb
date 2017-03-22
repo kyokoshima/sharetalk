@@ -21,6 +21,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def layout_by_resource
+    if devise_controller?
+      'no_sidebar'
+    else
+      'application'
+    end
+  end
+
  protected
  
   def configure_permitted_parameters

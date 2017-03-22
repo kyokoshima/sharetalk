@@ -11,11 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
-
-
 ActiveRecord::Schema.define(version: 20170321145901) do
-
-
 
 
 
@@ -41,6 +37,7 @@ ActiveRecord::Schema.define(version: 20170321145901) do
     t.integer  "expense_id"
     t.integer  "user_id"
     t.integer  "position"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["expense_id", "user_id"], name: "index_expense_users_on_expense_id_and_user_id"
@@ -48,15 +45,24 @@ ActiveRecord::Schema.define(version: 20170321145901) do
 
   create_table "expenses", force: :cascade do |t|
     t.string   "title"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["expense_id", "user_id"], name: "index_expense_users_on_expense_id_and_user_id"
   end
+
 
   create_table "expenses_users", id: false, force: :cascade do |t|
     t.integer "expense_id", null: false
     t.integer "user_id",    null: false
     t.index ["expense_id"], name: "index_expenses_users_on_expense_id"
     t.index ["user_id"], name: "index_expenses_users_on_user_id"
+
+  create_table "expenses", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+
   end
 
   create_table "groups", force: :cascade do |t|
@@ -94,8 +100,10 @@ ActiveRecord::Schema.define(version: 20170321145901) do
 
 
 
+
     t.integer  "user_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+
 
 
 
@@ -136,6 +144,7 @@ ActiveRecord::Schema.define(version: 20170321145901) do
     t.index ["timeline_id"], name: "index_replies_on_timeline_id"
 
 
+
   end
 
   create_table "read_marks", force: :cascade do |t|
@@ -145,6 +154,7 @@ ActiveRecord::Schema.define(version: 20170321145901) do
     t.integer  "reader_id"
     t.datetime "timestamp"
     t.index ["reader_id", "reader_type", "readable_type", "readable_id"], name: "read_marks_reader_readable_index", unique: true
+
 
 
   end

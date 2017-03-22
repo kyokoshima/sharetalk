@@ -26,6 +26,7 @@
     <div class="links">
       <%= link_to_add_association 'add cost', f, :costs %>
     </div>
+
   </div>
 
   <%= render 'new_user_form', f: f, users: @users %>
@@ -45,6 +46,12 @@
   </div>
 
   <%= render 'new_user_form', f: f, users: @users %>
+
+
+  </div>
+
+  <%= render 'new_user_form', f: f, users: @users %>
+
 
   <div class="nested-fields">
     <% User.all do |user| %>
