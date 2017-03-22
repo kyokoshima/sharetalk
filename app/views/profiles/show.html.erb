@@ -1,31 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<p class="profile-show-img">
-  <strong>Image:</strong>
-	  <%= image_tag @profile.image.url(:medium) %>
-</p>
+<div id="profile_show">
+  <% if @profile.image.present? %>
+    <%= image_tag @profile.image.url(:medium) %>
+  <% else %>
+    <%= image_tag "no_img.png" %>
+  <% end %>
+</div>
 
-<p>
-  <strong>Name:</strong>
-	  <%= @profile.name %>
-</p>
+<div id="profile">
+ プロフィール
+</div>
 
-<p>
-  <strong>Introduce:</strong>
-	  <%= @profile.introduce %>
-</p>
-
-
-<p>
+<div class="profile_hobby">
   <strong>Hobby:</strong>
   <%= @profile.hobby %>
-</p>
+</div>
 
-<p>
+<div class="profile_birthday">
   <strong>Birthday:</strong>
   <%= @profile.birthday %>
-</p>
+</div>
+
+<div class="profile_introduction">
+  <strong>Introduce:</strong>
+    <%= @profile.introduce %>
+</div>
+
 <% if current_user.id == @profile.user.id %>
-  <%= link_to 'Edit', edit_profile_path(@profile) %> |
+  <div class="buttom"><%= link_to 'Edit', edit_profile_path(@profile) %></div> 
 <% end %>
-<%= link_to 'Back', profiles_path %>
+<div class="buttom"><%= link_to 'Back', profiles_path %></div>
