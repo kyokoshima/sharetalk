@@ -25,7 +25,7 @@
     </div>
   </div>
 
-  <%= render 'new_user_form', f: f, users: @users %>
+  <%= render 'new_user_form', f: f, expense: expense, users: @users %>
 
   <div class="nested-fields">
     <% User.all do |user| %>
