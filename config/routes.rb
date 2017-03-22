@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
 
+
   resources :expenses do
   	resources :costs
   end
@@ -21,6 +22,18 @@ Rails.application.routes.draw do
   resources :message_groups do
     resources :messages
   end
+
+
+
+  root :to => "timelines#index"
+  
+  resources :turns do
+    resources :turn_details
+  end
+  resources :message_groups do
+    resources :messages
+  end
+
 
 
   resources :timelines do

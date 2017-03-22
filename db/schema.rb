@@ -11,7 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
+
 ActiveRecord::Schema.define(version: 20170321145901) do
+
 
 
   create_table "costs", force: :cascade do |t|
@@ -87,8 +89,14 @@ ActiveRecord::Schema.define(version: 20170321145901) do
     t.string   "content"
     t.integer  "message_group_id"
 
+
     t.integer  "user_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+
+
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
 
 
   create_table "profiles", force: :cascade do |t|
@@ -122,6 +130,7 @@ ActiveRecord::Schema.define(version: 20170321145901) do
     t.integer  "user_id"
     t.integer  "timeline_id"
     t.index ["timeline_id"], name: "index_replies_on_timeline_id"
+
   end
 
   create_table "read_marks", force: :cascade do |t|
@@ -131,6 +140,7 @@ ActiveRecord::Schema.define(version: 20170321145901) do
     t.integer  "reader_id"
     t.datetime "timestamp"
     t.index ["reader_id", "reader_type", "readable_type", "readable_id"], name: "read_marks_reader_readable_index", unique: true
+
   end
 
   create_table "timelines", force: :cascade do |t|
