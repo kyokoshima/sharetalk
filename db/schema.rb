@@ -45,18 +45,18 @@ ActiveRecord::Schema.define(version: 20170319223413) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "expenses_users", id: false, force: :cascade do |t|
-    t.integer "expense_id", null: false
-    t.integer "user_id",    null: false
-    t.index ["expense_id"], name: "index_expenses_users_on_expense_id"
-    t.index ["user_id"], name: "index_expenses_users_on_user_id"
-  end
-
   create_table "groups", force: :cascade do |t|
     t.string   "name"
     t.text     "detail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "timeline_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "message_group_users", id: false, force: :cascade do |t|
