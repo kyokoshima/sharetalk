@@ -1,9 +1,9 @@
 %li.clearfix
-  .message-data.me
+  .message-data.me.align-right
     %span.message-data-time
       = message.created_at
     %span.message-data-name
       = message.user.profile.name
-    = mi.fiber_manual_record
+    = mi.fiber_manual_record.css_class('me')
   .message.my-message
     = message.content

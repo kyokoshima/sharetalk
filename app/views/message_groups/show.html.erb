@@ -5,7 +5,7 @@
       <div class="people-list" id="people-list">
         <div class="search">
           <input type="text" placeholder="search" />
-            <%= mi.search %>
+            <%= mi.search.css_class('search fa-search') %>
         </div>
         <ul class="list">
           <% @users.each do |u| %>
@@ -29,11 +29,13 @@
       
       <div id="message-in">
         <div class="message-header clearfix">
-          <%= image_tag @message_group.icon, class: 'avator' %>
+          <div class="avatar-img">
+            <%= image_tag @message_group.icon %>
+          </div>
           
           <div id="message-about">
             <div id="message-with">Messages with <%= @message_group.users.map { |u| u.profile.name }.join(',') %></div>
-            <div id="message-num"><%= @message_group.messages.count %>件<div>
+            <div id="message-num"><%= @message_group.messages.count %>件</div>
           </div>
           <i class="material-icons fa-star">star_rate</i>
         </div> <!-- end chat-header -->
