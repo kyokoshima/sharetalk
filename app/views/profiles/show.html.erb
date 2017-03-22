@@ -1,9 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<p class="profile-show-img">
   <strong>Image:</strong>
 	  <%= image_tag @profile.image.url(:medium) %>
 </p>
+
+<p>
+  <strong>Name:</strong>
+	  <%= @profile.name %>
+</p>
+
+<p>
+  <strong>Introduce:</strong>
+	  <%= @profile.introduce %>
+</p>
+
 
 <p>
   <strong>Hobby:</strong>

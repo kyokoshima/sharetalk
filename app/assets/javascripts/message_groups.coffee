@@ -23,13 +23,14 @@ $('#candidate-modal').on 'click', '.collection-item' , (e) ->
   console.log @
   chips = $(@).parents().find('.section > .chip')
   group_title = []
+  attribute_name = $(@).data("attribute-name")
   chips.each (i, e) ->
     new_id = new Date().getTime()
     hidden = $('<input type="hidden">')
-      .attr {'name': "message_group[message_group_users_attributes][#{new_id}][user_id]"}
+      .attr {'name': attribute_name}
       .val $(e).data('user-id')
     chip = $(e).clone()
-    $('#new_message_group #users').prepend(chip).append(hidden)
+    $('#users').prepend(chip).append(hidden)
     group_title.push  chip.find('span').text()
 
   $('#message_group_title').val(group_title)
