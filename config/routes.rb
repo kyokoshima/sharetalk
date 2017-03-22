@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
   root :to => "timelines#index"
-  resources :timelines do
-    resources :replies
-  end
   
   resources :turns do
     resources :turn_details
@@ -10,6 +7,15 @@ Rails.application.routes.draw do
   resources :message_groups do
     resources :messages
   end
+
+
+  resources :timelines do
+    member do
+      get :liking_users
+    end
+    resources :replies
+  end
+  resources :profiles
   resources :expenses do
   	resources :costs
   end
@@ -24,10 +30,15 @@ Rails.application.routes.draw do
     post 'sign_up' => 'devise/registrations#create', as: :user_registration
   end
 
+  resources :messages
   resources :profiles
   resources :groups
   resources :events
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+# likes関連
+  post '/like/:timeline_id' => 'likes#like', as: 'like'
+  delete '/unlike/:timeline_id' => 'likes#unlike', as: 'unlike'
 
 end

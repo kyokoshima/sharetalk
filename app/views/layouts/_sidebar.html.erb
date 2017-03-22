@@ -1,6 +1,6 @@
 <ul id="sidebar" class="sidenavi fixed">
 	<li class="sidebar_profile">
-		<%= image_tag current_user.profile.image.url(:medium) %>
+    <%= profile_image %>
     <% if current_user.profile.name %>
 			<%= link_to current_user.profile.name, profile_path(current_user.profile) %>
     <% else %>

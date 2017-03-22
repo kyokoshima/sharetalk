@@ -4,32 +4,49 @@
 
 <table>
   <thead>
-      <th>name</th>
-      <th>id</th>
-      <th>Image</th>
-      <th>Hobby</th>
-      <th>Birthday</th>
-      <th colspan="3"></th>
-    </tr>
   </thead>
-
   <tbody>
     <% @profiles.each do |profile| %>
-      <tr>
-        <td><%= profile.name %></td>
-        <td><%= profile.user_id %></td>
-        <td class="profile-image">
-          <%= image_tag profile.image.url(:medium) %></td>
-        <td><%= profile.hobby %></td>
-        <td><%= profile.birthday %></td>
-        <td><%= link_to 'Show', profile %></td>
-        <% if current_user.id == profile.user.id %>
-          <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-          <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <div id="profiles">
+      <hr>
+        <!-- <td><%= profile.user_id %></td> -->
+        <div class="profile-image">
+        <% if profile.image.present? %>
+          <%= image_tag profile.image.url(:medium) %>
+        </div>
+        <% else %>
+          <%= image_tag "no_img.png" %>f
         <% end %>
-      </tr>
+        <div class="profile-name">
+          <p class="plate">Name</p> :<%= profile.name %>
+        </div>
+        <div class="profile-birthday">
+          <p class="plate">Birthday</p><%= profile.birthday %>
+        </div>
+        <br>
+        <div class="profile-hobby">
+          <p class="plate hobby">Hobby</p><%= profile.hobby %>
+        </div>
+
+        <div class="package">
+          <div class="buttom2">
+            <span style="font-size: 21px;"><%= link_to 'Show', profile %></span>
+          </div>
+
+        <% if current_user.id == profile.user.id %>
+          <div class="buttom2">
+            <span style="font-size: 21px; color:white;"><%= link_to 'Edit', edit_profile_path(profile) %></span>
+          </div>
+          <div class="buttom2"><span style="font-size: 21px;"><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></span></div>
+
+        </div> <!-- package -->
+        <% end %>
+      </div> <!-- profile-image -->
+      <hr>
     <% end %>
   </tbody>
 </table>
+
+
 
 <br>

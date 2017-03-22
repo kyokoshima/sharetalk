@@ -10,9 +10,10 @@
       </ul>
     </div>
   <% end %>
-
+  
+  <div class="title">
   <div class="field">
-    <%= f.label :title %>
+    <p><%= f.label :title %></p>
     <%= f.text_field :title %>
   </div>
 
@@ -25,7 +26,7 @@
     </div>
   </div>
 
-  <%= render 'new_user_form', f: f, users: @users %>
+  <%= render 'new_user_form', f: f, expense: expense, users: @users %>
 
   <div class="nested-fields">
     <% User.all do |user| %>
@@ -34,6 +35,7 @@
         <%= check_box_tag user.id, {}, user.id, false %>
       </div>
     <% end %>
+  </div>
   </div>
 
   <div class="actions">

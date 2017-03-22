@@ -19,6 +19,7 @@
         <% else %>
           <%= link_to timeline.user.profile.user_id, profile_path(timeline.user.profile.id) %>
         <% end %>
+
         <div class="date">
           <%= time_ago_in_words(timeline.created_at) + "前" %>
         </div>
@@ -28,6 +29,7 @@
     <div class="timeline_content">
       <%= timeline.content %>
     </div>
+
 
   </div>
 

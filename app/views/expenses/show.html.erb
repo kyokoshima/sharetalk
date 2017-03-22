@@ -1,26 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @expense.title %>
-</p>
+<table class="table-show">
+<tr>
+  <th><strong>Title:</strong></th>
+  <td><%= @expense.title %></td>
+</tr>
 
 <% @expense.costs.each do |cost| %>
-<p>
-  <strong>Subject:</strong>
-  <%= cost.subject %>
+<tr>
+  <th><strong>Subject:</strong></th>
+  <td><%= cost.subject %></td>
 
-  <strong>Cost:</strong> ¥
-  <%= cost.cost %>
+  <th><strong>Cost:</strong></th>
+  <td>¥<%= cost.cost %></td>
 
-	<strong>Detail:</strong>
-  <%= cost.detail %>
-</p>
+	<th><strong>Detail:</strong></th>
+  <td><%= cost.detail %></td>
+</tr>
 <% end %>
 
 <% @expense.users.each do |user| %>
 	<%= user.email %>
 <% end %>
+
+</table>
 
 <p>
 <strong>代金合計</strong> ¥

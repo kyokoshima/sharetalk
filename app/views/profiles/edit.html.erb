@@ -1,9 +1,10 @@
 <h1>Editing Profile</h1>
 
-<p>
+<div id="edit-profile">
   <strong>Image:</strong>
-  <%= image_tag current_user.profile.image.url(:medium) %>
-</p>
+  <%= image_tag @profile.image.url(:medium) %>
+</div>
+
 <%= render 'form', profile: @profile %>
 
 <%= link_to 'Show', @profile %> |

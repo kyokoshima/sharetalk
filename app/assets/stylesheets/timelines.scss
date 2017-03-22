@@ -190,7 +190,28 @@ textarea {
 .timeline{
 	border-style: ridge;
 }
-.timeline-img img {
+.timeline img {
+	width: 100px;
+	height: 100px;
+
+}
+.reply {
+	float: left;
+}
+.reply img {
+	width: 50px;
+	height: 50px;
+	// float: left;
+}
+
+/* liking_users */
+.liking_users img {
 	width: 100px;
 	height: 100px;
 }
+
+/*h1 {
+	/*background-color: #2fcdb4;*/
+/*	font-family:  "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, Meiryo, sans-serif;
+*/
+

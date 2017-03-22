@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170319223413) do
+
+ActiveRecord::Schema.define(version: 20170321145901) do
 
   create_table "costs", force: :cascade do |t|
     t.string   "subject"
@@ -21,11 +22,13 @@ ActiveRecord::Schema.define(version: 20170319223413) do
     t.integer  "expense_id"
   end
 
+
   create_table "costs_expenses", id: false, force: :cascade do |t|
     t.integer "expense_id", null: false
     t.integer "cost_id",    null: false
     t.index ["expense_id", "cost_id"], name: "index_costs_expenses_on_expense_id_and_cost_id"
   end
+
 
   create_table "events", force: :cascade do |t|
     t.string   "title"
@@ -49,7 +52,9 @@ ActiveRecord::Schema.define(version: 20170319223413) do
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
     t.integer  "expense_id"
+
   end
 
   create_table "groups", force: :cascade do |t|
@@ -58,6 +63,15 @@ ActiveRecord::Schema.define(version: 20170319223413) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "timeline_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
 
   create_table "message_group_users", id: false, force: :cascade do |t|
     t.integer "message_group_id"
@@ -93,6 +107,9 @@ ActiveRecord::Schema.define(version: 20170319223413) do
     t.datetime "image_updated_at"
     t.string   "name"
     t.integer  "user_id"
+
+    t.text     "introduce"
+
   end
 
   create_table "read_marks", force: :cascade do |t|

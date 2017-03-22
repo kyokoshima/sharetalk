@@ -27,7 +27,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  has_one :profile, dependent: :destroy
+  has_one :profile
   has_many :timelines
   has_many :user_groups, inverse_of: :user
   has_many :groups, through: :user_groups
@@ -38,6 +38,7 @@ class User < ApplicationRecord
   has_many :expenses_users, inverse_of: :user
   has_many :expenses, through: :expenses_users
   has_many :message_groups, through: :message_group_users
+  has_many :likes
   has_many :messages
 
   acts_as_reader
