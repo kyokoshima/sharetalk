@@ -10,9 +10,10 @@
       </ul>
     </div>
   <% end %>
-
+  
+  <div class="title">
   <div class="field">
-    <%= f.label :title %>
+    <p><%= f.label :title %></p>
     <%= f.text_field :title %>
   </div>
 
@@ -34,6 +35,7 @@
         <%= check_box_tag user.id, {}, user.id, false %>
       </div>
     <% end %>
+  </div>
   </div>
 
   <div class="actions">
