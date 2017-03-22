@@ -40,7 +40,6 @@ class User < ApplicationRecord
   has_many :message_groups, through: :message_group_users
   has_many :likes
   has_many :messages
-  
   acts_as_reader
 
   validates :name,
