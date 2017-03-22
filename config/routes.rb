@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< .merge_file_BsSJqh
 
 
 
@@ -36,6 +37,18 @@ Rails.application.routes.draw do
 
 
 
+=======
+  root :to => "timelines#index"
+  
+  resources :turns do
+    resources :turn_details
+  end
+  resources :message_groups do
+    resources :messages
+  end
+
+
+>>>>>>> .merge_file_6E1ALg
   resources :timelines do
     member do
       get :liking_users
@@ -58,7 +71,10 @@ Rails.application.routes.draw do
   end
 
   resources :messages
+<<<<<<< .merge_file_BsSJqh
 
+=======
+>>>>>>> .merge_file_6E1ALg
   resources :profiles
   resources :groups
   resources :events
