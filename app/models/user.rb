@@ -16,6 +16,7 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  name                   :string
+#  on                     :boolean          default(FALSE), not null
 #
 # Indexes
 #
@@ -28,6 +29,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_one :profile
   has_many :timelines
+  has_many :user_groups, inverse_of: :user
+  has_many :groups, through: :user_groups
   has_many :replies
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -36,6 +39,8 @@ class User < ApplicationRecord
   has_many :expenses, through: :expenses_users
   has_many :message_groups, through: :message_group_users
   has_many :likes
+  has_many :messages
+  
   acts_as_reader
 
   validates :name,
@@ -48,5 +53,17 @@ class User < ApplicationRecord
 
   def set_profile
     update(profile: Profile.new)
+  end
+
+  def appear on: true
+    update(on: on)
+  end
+
+  def away
+    update(on: false)
+  end
+
+  def disappear
+    away
   end
 end

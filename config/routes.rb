@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  root :to => "timelines#index"
   
   resources :turns do
     resources :turn_details
+  end
+  resources :message_groups do
+    resources :messages
   end
 
 
@@ -12,6 +16,10 @@ Rails.application.routes.draw do
     resources :replies
   end
   resources :profiles
+  resources :expenses do
+  	resources :costs
+  end
+
   devise_for :users, skip: [:sessions, :registrations] #deviseのデフォルトのpathを削除
   devise_scope :user do
     root :to => "devise/sessions#new"
@@ -23,17 +31,11 @@ Rails.application.routes.draw do
   end
 
   resources :messages
-  root :to => "home#index"
+  resources :profiles
   resources :groups
   resources :events
 
-  resources :expenses do
-  	resources :costs
-  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :message_groups do
-    resources :messages
-  end
 
 # likes関連
   post '/like/:timeline_id' => 'likes#like', as: 'like'
