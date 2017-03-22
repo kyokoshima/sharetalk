@@ -12,6 +12,26 @@
   <% end %>
 
   <div class="field">
+
+  <table class="table-new">
+    <th><%= f.label :title %></th>
+    <td><%= f.text_field :title %></td>
+
+  </div>
+
+  <div id="costs">
+    <%= f.fields_for :costs do |cost| %>
+      <%= render 'cost_fields', f: cost %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'add cost', f, :costs %>
+    </div>
+
+  </div>
+
+  <%= render 'new_user_form', f: f, users: @users %>
+
+
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
@@ -26,6 +46,12 @@
   </div>
 
   <%= render 'new_user_form', f: f, expense: expense, users: @users %>
+
+
+  </div>
+
+  <%= render 'new_user_form', f: f, users: @users %>
+
 
   <div class="nested-fields">
     <% User.all do |user| %>

@@ -1,3 +1,103 @@
 // Place all the styles related to the expenses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #e9ebee;
+}
+.header {
+	width: 100%;
+	background-color: #2fcdb4;
+	color:white
+
+}
+
+
+.table-index{
+width:80%;
+border-collapse: separate;
+border-spacing: 0px;
+border-top: 1px solid #ccc;
+border-left: 1px solid #ccc;
+
+}
+.table-index th{
+width: 25%;
+padding: 4px;
+text-align: left;
+vertical-align: top;
+color: #444;
+background-color: #ccc;
+border-top: 1px solid #fff;
+border-left: 1px solid #fff;
+border-right: 1px solid #ccc;
+border-bottom: 1px solid #ccc;
+}
+.table-index td{
+padding: 4px;
+background-color: #fafafa;
+border-right: 1px solid #ccc;
+border-bottom: 1px solid #ccc;
+}
+
+
+.table-show{
+width:80%;
+border-collapse: separate;
+border-spacing: 0px;
+border-top: 1px solid #ccc;
+border-left: 1px solid #ccc;
+}
+.table-show th{
+width: 25%;
+padding: 4px;
+text-align: left;
+vertical-align: top;
+color: #444;
+background-color: #ccc;
+border-top: 1px solid #fff;
+border-left: 1px solid #fff;
+border-right: 1px solid #ccc;
+border-bottom: 1px solid #ccc;
+}
+.table-show td{
+padding: 4px;
+background-color: #fafafa;
+border-right: 1px solid #ccc;
+border-bottom: 1px solid #ccc;
+}
+
+
+.table-new{
+width:60%;
+border-collapse: separate;
+border-spacing: 0px;
+border-top: 1px solid #ccc;
+border-left: 1px solid #ccc;
+}
+.table-new th{
+width: 25%;
+padding: 4px;
+text-align: left;
+vertical-align: top;
+color: #444;
+background-color: #ccc;
+border-top: 1px solid #fff;
+border-left: 1px solid #fff;
+border-right: 1px solid #ccc;
+border-bottom: 1px solid #ccc;
+}
+.table-new td{
+padding: 4px;
+background-color: #fafafa;
+border-right: 1px solid #ccc;
+border-bottom: 1px solid #ccc;
+}
+
+
