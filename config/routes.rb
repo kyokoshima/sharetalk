@@ -1,17 +1,11 @@
 Rails.application.routes.draw do
   root :to => "timelines#index"
-  resources :timelines do
-    resources :replies
-  end
   
   resources :turns do
     resources :turn_details
   end
   resources :message_groups do
     resources :messages
-  end
-  resources :expenses do
-  	resources :costs
   end
 
 
@@ -37,7 +31,6 @@ Rails.application.routes.draw do
   end
 
   resources :messages
-  root :to => "home#index"
   resources :profiles
   resources :groups
   resources :events
