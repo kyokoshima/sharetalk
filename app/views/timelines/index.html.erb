@@ -30,41 +30,25 @@
     </div>
 
   </div>
+
+  <div class="comment">
+    <div class="reply">
+      <% timeline.replies.each do |reply| %>
+        <%= image_tag reply.user.profile.image.url(:medium) %>
+        <div class="name">
+          <%= reply.user.profile.name %>
+        </div>
+        <div class="comment-content">
+          <%= reply.comment %>
+        </div><br>
+        <div class="like">いいね！</div>
+        <div class="date">
+          ・
+          <%= time_ago_in_words(reply.created_at) + "前" %>
+        </div>
+      <% end %>
+    </div>
+    <%= image_tag timeline.user.profile.image.url(:medium) %>
+    <%= render 'replies/form', timeline: timeline, reply: @reply %>
+  </div>
 <% end %>
-
-<div class="timelines">
-<div class="timeline_title">a</div>
-<div class="timeline_content">b</div>
-</div>
-<table>
-  <tbody>
-    <% @timelines.each do |timeline| %>
-      <tr class="timeline">
-        <td><%= time_ago_in_words(timeline.created_at) + "前" %></td>
-        <td>
-          <% if timeline.user.profile.name.present? %>
-            <%= link_to timeline.user.profile.name, profile_path(timeline.user.profile.id) %></td>
-          <% else %>
-            <%= link_to timeline.user.profile.user_id, profile_path(timeline.user.profile.id) %>
-          <% end %>
-        <td>
-          <% if timeline.user.profile.image.present? %>
-            <%= image_tag timeline.user.profile.image.url(:medium) %>
-          <% else %>
-            <%= image_tag "no_img.png" %>
-          <% end %>
-        </td>
-        <td><%= timeline.content %></td>
-        <td><%= link_to '詳細表示', timeline %></td>
-        <% if current_user.id == timeline.user.id %>
-          <td><%= link_to '編集', edit_timeline_path(timeline) %></td>
-          <td><%= link_to 'Destroy', timeline, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Timeline', new_timeline_path %>

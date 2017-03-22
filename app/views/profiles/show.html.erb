@@ -2,11 +2,7 @@
 
 <p>
   <strong>Image:</strong>
-  <% if @profile.image.present? %>
 	  <%= image_tag @profile.image.url(:medium) %>
-  <% else %>
-	  <%= image_tag "no_img.png" %>
-  <% end %>
 </p>
 
 <p>
