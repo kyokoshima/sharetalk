@@ -38,3 +38,14 @@ $body-background: #2fcdb4;
 #signin-page{
   width: 300px;
 }
+
+#notice {
+  .card-content {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    i {
+      margin-right: .5rem;
+    }
+  }
+}

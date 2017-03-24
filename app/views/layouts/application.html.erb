@@ -16,7 +16,7 @@
         </div>
         <div class="col s9">
           <div class="row">
-            <p class="notice"><%= notice %></p>
+            <%= render 'layouts/notice', notice: notice if notice %>
             <p class="alert"><%= alert %></p>
             <%= yield %>
            

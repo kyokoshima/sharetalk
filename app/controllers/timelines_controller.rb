@@ -4,10 +4,14 @@ class TimelinesController < ApplicationController
   # GET /timelines
   # GET /timelines.json
   def index
-    @timelines = Timeline.all.order(:id).reverse_order
-    @timeline = Timeline.new
-    @reply = Reply.new
-    @timelines.each {|tl| tl.mark_as_read! :for => current_user }
+    if current_user.groups.present?
+      @timelines = Timeline.all.order(:id).reverse_order
+      @timeline = Timeline.new
+      @reply = Reply.new
+      @timelines.each {|tl| tl.mark_as_read! :for => current_user }
+    else
+      redirect_to groups_path, notice: 'どのグループにも属していません。グループを選んでください'  
+    end
   end
 
   def liking_users
