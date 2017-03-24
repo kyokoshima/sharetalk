@@ -112,13 +112,7 @@ ActiveRecord::Schema.define(version: 20170321145901) do
     t.datetime "image_updated_at"
     t.string   "name"
     t.integer  "user_id"
-<<<<<<< .merge_file_sNByab
-
     t.text     "introduce"
-
-=======
-    t.text     "introduce"
->>>>>>> .merge_file_CSjQce
   end
 
   create_table "read_marks", force: :cascade do |t|
