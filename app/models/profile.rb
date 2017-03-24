@@ -14,6 +14,7 @@
 #  image_updated_at   :datetime
 #  name               :string
 #  user_id            :integer
+#  introduce          :text
 #
 
 class Profile < ApplicationRecord
