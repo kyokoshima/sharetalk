@@ -17,6 +17,7 @@
 #  updated_at             :datetime         not null
 #  name                   :string
 #  on                     :boolean          default(FALSE), not null
+#  on                     :boolean          default("f"), not null
 #
 # Indexes
 #

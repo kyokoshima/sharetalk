@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20170321145901) do
 
   create_table "costs", force: :cascade do |t|
@@ -64,7 +63,10 @@ ActiveRecord::Schema.define(version: 20170321145901) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< .merge_file_sNByab
 
+=======
+>>>>>>> .merge_file_CSjQce
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "timeline_id"
@@ -72,7 +74,10 @@ ActiveRecord::Schema.define(version: 20170321145901) do
     t.datetime "updated_at",  null: false
   end
 
+<<<<<<< .merge_file_sNByab
 
+=======
+>>>>>>> .merge_file_CSjQce
   create_table "message_group_users", id: false, force: :cascade do |t|
     t.integer "message_group_id"
     t.integer "user_id"
@@ -107,9 +112,13 @@ ActiveRecord::Schema.define(version: 20170321145901) do
     t.datetime "image_updated_at"
     t.string   "name"
     t.integer  "user_id"
+<<<<<<< .merge_file_sNByab
 
     t.text     "introduce"
 
+=======
+    t.text     "introduce"
+>>>>>>> .merge_file_CSjQce
   end
 
   create_table "read_marks", force: :cascade do |t|
